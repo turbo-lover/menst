@@ -11,5 +11,6 @@
     <string name="hello_caption_second">
         Для дальнейшей работы, пожалуйста, выполните первоначальную настройку.
     </string>
+    <string name="cycle_duration">Длительность цикла</string>
 
 </resources>
