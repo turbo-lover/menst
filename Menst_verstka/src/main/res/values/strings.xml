@@ -13,4 +13,28 @@
     </string>
     <string name="cycle_duration">Длительность цикла</string>
 
+    <!-- Вот такой вот массивчик для перевода приложения и динамической подгрузки )-->
+    <string-array name="symptoms">
+       <item>Аппетит</item>
+       <item>Бессонница</item>
+       <item>Повышение температуры</item>
+       <item>боли в мышцах / суставах</item>
+       <item>боли в спине</item>
+       <item>боли в теле</item>
+       <item>боли в груди</item>
+       <item>боли в животе</item>
+       <item>Боли в паху</item>
+       <item>Головные боли</item>
+       <item>Болезненность яичников</item>
+       <item>Вздутие живота</item>
+       <item>Головокружение</item>
+       <item>Тошнота</item>
+       <item>Запор</item>
+       <item>Диарея</item>
+       <item>Сыпь</item>
+       <item>Колики</item>
+       <item>Кровяные выделения / кровотечения</item>
+       <item>Либидо</item>
+    </string-array>
+
 </resources>
