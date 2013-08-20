@@ -4,9 +4,9 @@ package com.menst_verstka.utils;
  * Created by turbo_lover on 19.08.13.
  */
 public class symptomsClass {
-
     //класс содержащий поля с симтомами, все значения должны вариироваться от 0 до 3!
-    //0 -не установленно1-3 - заполенно на 1,2,3 соответственно!
+    //0 -не установленно; 1-3 - заполенно на 1,2,3 соответственно!
+
 /*   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     |Аппетит,                           |       appetite,         |
     |Бессонница,                        |       insomnia,         |
@@ -213,8 +213,4 @@ public class symptomsClass {
     public void setLibido(int libido) {
         this.libido = libido;
     }
-
-
-
-
 }

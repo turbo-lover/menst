@@ -9,61 +9,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hello_caption_first"
-            android:singleLine="true"
-
-
-
-            android:textAlignment="gravity"
-            android:gravity="center_horizontal"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentRight="false"
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             />
     <TextView
             android:id="@+id/hello_caption_second"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/hello_caption_second"
-            android:singleLine="true"
-            android:textAlignment="gravity"
-            android:gravity="center_horizontal"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentRight="false"
             android:textColor="@color/white"
             android:layout_below="@id/hello_caption_first"
-            android:layout_centerHorizontal="true"
+
             />
 
     <TextView
-        android:id="@+id/cycle_duration"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cycle_duration"
-        android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        android:layout_alignLeft="@+id/hello_caption_first"
-        android:layout_below="@+id/hello_caption_second"/>
-    <RelativeLayout
-            android:layout_above="@+id/line_first"
+            android:id="@id/horizontal_anchor"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-
-            >
-
-    </RelativeLayout>
-
-    <ImageView
-            android:id="@+id/line_first"
-            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/line"
 
-            android:layout_alignLeft="@+id/hello_caption_first"
-            android:layout_alignRight="@+id/hello_caption_first"
-            android:layout_centerVertical="true"
             />
+
+
 
 </RelativeLayout>

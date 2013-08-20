@@ -6,14 +6,14 @@
     <string name="hello_world">Hello world!</string>
     <string name="hello_caption_first">
         Добро пожаловать в <b>«Календарь менструации - Sister»!</b>
-
     </string>
     <string name="hello_caption_second">
         Для дальнейшей работы, пожалуйста, выполните первоначальную настройку.
     </string>
     <string name="cycle_duration">Длительность цикла</string>
-
-    <!-- Вот такой вот массивчик для перевода приложения и динамической подгрузки )-->
+    <!-- Вот такой вот массивчик для перевода приложения
+        Используется
+    -->
     <string-array name="symptoms">
        <item>Аппетит</item>
        <item>Бессонница</item>
@@ -36,5 +36,4 @@
        <item>Кровяные выделения / кровотечения</item>
        <item>Либидо</item>
     </string-array>
-
 </resources>
