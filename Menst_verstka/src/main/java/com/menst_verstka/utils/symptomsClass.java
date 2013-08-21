@@ -51,7 +51,6 @@ public class symptomsClass {
             bleeding,
             libido;
 
-
     //авто сгенерированные код очень скучный, но вроде как полезный )
 
     public int getAppetite() {
