@@ -4,19 +4,22 @@ package com.menst_verstka.activity;/**
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import com.menst_verstka.R;
 
 public class LauncherActivity extends Activity {
 
-
+LinearLayout container;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.test);
+
 
         Initialize_Component();
         SetComposite();
         SetEventListeners();
+
     }
 
 
