@@ -21,7 +21,7 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     private ImageView circle2;
     private ImageView circle3;
     private TextView text;
-    private int currentValue;
+    private int currentValue = 0;
 
     public symptomElement(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -37,8 +37,6 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     private void setListeners() {
         this.setOnClickListener(this);
     }
-
-
 
     private void initializeVariables() {
 
@@ -57,8 +55,8 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     public void setCurrentValue(int currentValue) {
         this.currentValue = currentValue;
     }
-    public void setText(TextView text) {
-        this.text = text;
+    public void setText(CharSequence text) {
+        this.text.setText(text);
     }
 
     public void setImage(Bitmap image) {
@@ -93,9 +91,10 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     /* my method */
     private void setCircles(int currentValue) {
         if(currentValue == 0)
-            for (ImageView v: circles) {
+            for (ImageView v: circles)
                 v.setBackgroundResource(R.color.Transparent);
-            }
-
+        else
+            for (int i =0; i<(currentValue-1);i++)
+                circles[i].setBackgroundResource(R.color.pink);
     }
 }
