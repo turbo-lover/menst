@@ -11,6 +11,16 @@
         Для дальнейшей работы, пожалуйста, выполните первоначальную настройку.
     </string>
     <string name="cycle_duration">Длительность цикла</string>
+    <string name="start_calendar">Начать использовать календарь</string>
+    <string name="choose_week_start">Выберите день начала недели:</string>
+    <string name="device_settings">Настройки устройства</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="monday">Понедельник</string>
+    <string name="change_settings_text">Позже все настройки можно будет изменить нажав на иконку
+    </string>
+    <string name="settings">Настройки</string>
+    <string name="cycle_duration_text">Длительность цикла</string>
+    <string name="menstruation_duration_text">Длительность менструации</string>
     <!-- Вот такой вот массивчик для перевода приложения
         Используется
     -->
