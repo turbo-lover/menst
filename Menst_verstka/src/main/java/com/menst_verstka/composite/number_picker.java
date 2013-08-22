@@ -122,7 +122,6 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
     }
 
     public double getValue() {
-        double v = Double.parseDouble(String.valueOf(value.getText()));
-        return v;
+        return Double.parseDouble(String.valueOf(value.getText()));
     }
 }
