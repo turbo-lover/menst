@@ -3,6 +3,8 @@ package com.menst_verstka.activity;/**
  */
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import com.menst_verstka.R;
@@ -34,9 +36,9 @@ public class SympotmActivity extends Activity {
                 symptomElement s = new symptomElement(this);
                 s.setCurrentValue(1);
                 s.setText(getResources().getTextArray(R.array.symptoms)[c]);
-                //Bitmap b = bi getResources().getDrawable(R.drawable.appetite);
-               // s.setImage();
 
+                Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.appetite);
+                s.setImage(b);
             }
         }
 

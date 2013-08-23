@@ -16,11 +16,17 @@
 
         <activity
             android:name=".activity.LauncherActivity"
-         android:screenOrientation="landscape" >
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+        <activity
+                android:name=".activity.SympotmActivity"
+                android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
     </application>
