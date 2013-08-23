@@ -39,6 +39,10 @@ public class SympotmActivity extends Activity {
 
                 Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.appetite);
                 s.setImage(b);
+                LinearLayout column = (LinearLayout) container.getChildAt(i);
+                if (column != null) {
+                    column.addView(s);
+                }
             }
         }
 
