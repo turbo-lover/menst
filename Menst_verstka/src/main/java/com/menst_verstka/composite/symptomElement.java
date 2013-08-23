@@ -2,9 +2,13 @@ package com.menst_verstka.composite;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+<<<<<<< HEAD
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+=======
+import android.view.LayoutInflater;
+>>>>>>> master
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
