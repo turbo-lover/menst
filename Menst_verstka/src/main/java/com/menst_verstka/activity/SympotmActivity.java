@@ -37,6 +37,10 @@ public class SympotmActivity extends Activity {
                 s.setCurrentValue(1);
                 s.setText(getResources().getTextArray(R.array.symptoms)[c]);
 
+                int width = getResources().getDimensionPixelSize(R.dimen.including_symptom_element);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,0);
+
+                s.setLayoutParams(lp);
                 Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.appetite);
                 s.setImage(b);
                 LinearLayout column = (LinearLayout) container.getChildAt(i);

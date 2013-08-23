@@ -7,4 +7,5 @@
     <dimen name="text_size_big">18sp</dimen>
     <dimen name="margin_top">4dp</dimen>
     <dimen name="null_dp">0dp</dimen>
+    <dimen name="including_symptom_element">190dp</dimen>
 </resources>
