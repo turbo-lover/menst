@@ -27,7 +27,6 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
 
     public Number_picker(Context context, AttributeSet attrs) {
         super(context, attrs);
-
             Initialize_Component();
             SetEventListeners();
     }

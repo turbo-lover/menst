@@ -16,11 +16,14 @@
     <string name="device_settings">Настройки устройства</string>
     <string name="sunday">Воскресенье</string>
     <string name="monday">Понедельник</string>
-    <string name="change_settings_text">Позже все настройки можно будет изменить нажав на иконку
-    </string>
+    <string name="change_settings_text">Позже все настройки можно будет изменить нажав на иконку</string>
     <string name="settings">Настройки</string>
     <string name="cycle_duration_text">Длительность цикла</string>
     <string name="menstruation_duration_text">Длительность менструации</string>
+    <string name="choose_language">Выберите язык календаря:</string>
+    <string name="russian">Русский</string>
+    <string name="english">Английский</string>
+    <string name="arabic">Арабский</string>
     <!-- Вот такой вот массивчик для перевода приложения
         Используется
     -->

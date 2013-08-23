@@ -1,15 +1,16 @@
 <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/background"
         android:paddingBottom="@dimen/null_dp"
+        android:paddingTop="@dimen/null_dp"
         >
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/header_text_rl"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="4dp"
             >
         <TextView
                 android:id="@+id/hello_caption_first"
@@ -17,6 +18,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/hello_caption_first"
                 android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
                 android:textAlignment="gravity"
                 android:gravity="center"
                 />
@@ -24,6 +26,7 @@
                 android:id="@+id/hello_caption_second"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
                 android:text="@string/hello_caption_second"
                 android:textColor="@color/white"
                 android:layout_below="@id/hello_caption_first"
@@ -31,15 +34,19 @@
                 android:gravity="center"
                 />
     </RelativeLayout>
+
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="@string/start_calendar"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size"
             android:id="@+id/start_calendar_btn"
-            style="@android:style/Widget.Button.Inset"
+            android:background="@drawable/btn_black"
             />
+
     <LinearLayout
             android:id="@+id/main_ll"
             android:layout_width="match_parent"
@@ -66,7 +73,7 @@
                     />
             <RelativeLayout
                     android:id="@+id/cycle_duration_rl"
-                    android:layout_height="70dp"
+                    android:layout_height="65dp"
                     android:layout_width="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_toLeftOf="@+id/anchor"
@@ -93,7 +100,7 @@
             </RelativeLayout>
             <RelativeLayout
                     android:id="@+id/menstruation_duration_rl"
-                    android:layout_height="70dp"
+                    android:layout_height="65dp"
                     android:layout_width="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/anchor"
@@ -132,6 +139,7 @@
                     android:id="@+id/choose_week_start_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size"
                     android:layout_alignLeft="@+id/separator1"
                     android:layout_alignRight="@+id/separator1"
                     android:layout_below="@+id/separator1"
@@ -165,6 +173,7 @@
                         android:layout_width="@dimen/null_dp"
                         android:text="@string/sunday"
                         android:layout_weight="1"
+                        android:button="@drawable/black_radio_btn"
                         />
                 <RadioButton
                         android:textSize="@dimen/text_size_small"
@@ -173,6 +182,7 @@
                         android:layout_width="@dimen/null_dp"
                         android:text="@string/monday"
                         android:layout_weight="1"
+                        android:button="@drawable/black_radio_btn"
                         />
             </RadioGroup>
 
@@ -186,21 +196,83 @@
                     android:layout_height="1dp"
                     android:id="@+id/separator2"
                     />
+            <TextView
+                    android:id="@+id/choose_language_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/separator2"
+                    android:layout_alignRight="@+id/separator2"
+                    android:layout_below="@+id/separator2"
+                    android:layout_marginTop="4dp"
+                    android:textSize="@dimen/text_size"
+                    android:text="@string/choose_language"
+                    android:textColor="@color/white"
+                    />
+            <RadioGroup
+                    android:id="@+id/choose_language_radiogroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/choose_language_textview"
+                    android:layout_alignLeft="@+id/choose_language_textview"
+                    android:layout_alignRight="@+id/choose_language_textview"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    >
+                <RadioButton
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/white"
+                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/null_dp"
+                        android:text="@string/russian"
+                        android:layout_weight="1.5"
+                        android:button="@drawable/black_radio_btn"
+                        />
+                <RadioButton
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/white"
+                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/null_dp"
+                        android:text="@string/english"
+                        android:layout_weight="1"
+                        android:button="@drawable/black_radio_btn"
+                        />
+                <RadioButton
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/white"
+                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/null_dp"
+                        android:text="@string/arabic"
+                        android:layout_weight="1"
+                        android:button="@drawable/black_radio_btn"
+                        />
+            </RadioGroup>
+
+            <View
+                    android:layout_alignLeft="@+id/choose_language_radiogroup"
+                    android:layout_alignRight="@+id/choose_language_radiogroup"
+                    android:layout_below="@+id/choose_language_radiogroup"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/borderColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:id="@+id/separator3"
+                    />
 
             <TextView
                     android:id="@+id/change_settings_textview"
                     android:layout_width="wrap_content"
+                    android:textSize="@dimen/text_size"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/separator2"
-                    android:layout_alignLeft="@+id/separator2"
+                    android:layout_below="@+id/separator3"
+                    android:layout_alignLeft="@+id/separator3"
                     android:text="@string/change_settings_text"
                     android:layout_marginTop="4dp"
                     android:textColor="@color/white"
                     >
             </TextView>
             <ImageView
-                    android:layout_height="40dp"
-                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_width="20dp"
                     android:background="@color/white"
                     android:layout_below="@+id/change_settings_textview"
                     android:layout_toLeftOf="@+id/anchor"
@@ -213,8 +285,9 @@
                     android:textColor="@color/white"
                     android:layout_marginLeft="5dp"
                     android:text="@string/settings"
+                    android:textSize="@dimen/text_size"
                     android:layout_toRightOf="@+id/settings_btn"
-                    android:layout_below="@+id/change_settings_textview"
+                   android:layout_alignBottom="@+id/settings_btn"
                     android:layout_marginTop="10dp"
                     />
 
@@ -225,6 +298,5 @@
                 android:layout_height="match_parent"
                 />
     </LinearLayout>
-
 
 </RelativeLayout>

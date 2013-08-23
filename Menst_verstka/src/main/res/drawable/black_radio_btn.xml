@@ -2,7 +2,7 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true"
-          android:drawable="@drawable/btn_radio_on"/>
+          android:drawable="@drawable/radiobutton_uncheked"/>
     <item android:state_checked="false"
-          android:drawable="@drawable/btn_radio_off"/>
+          android:drawable="@drawable/radiobutton"/>
 </selector>
