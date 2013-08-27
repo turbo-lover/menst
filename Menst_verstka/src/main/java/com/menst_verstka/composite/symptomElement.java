@@ -1,13 +1,10 @@
 package com.menst_verstka.composite;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-
+import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-
-
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,7 +35,10 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     }
 
     private void setListeners() {
-        this.setOnClickListener(this);
+        setOnClickListener(this);
+        circle1.setOnClickListener(this);
+        circle2.setOnClickListener(this);
+        circle3.setOnClickListener(this);
     }
 
     private void initializeVariables() {
@@ -62,42 +62,39 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
         this.text.setText(text);
     }
 
-    public void setImage(Bitmap image) {
-        this.image.setImageBitmap(image);
+    public void setImage(int id) {
+        image.setImageResource(id);
     }
     /* setters ends*/
 
     /* override method starts here*/
     @Override
     public void onClick(View view) {
-        switch (currentValue) {
-            case 0:
-                currentValue++;
-                setCircles(currentValue);
+        final int id = this.getId();
+
+        switch (view.getId()) {
+            case R.id.red_circles_1:
+                setCircles(1);
                 break;
-            case 1:
-                currentValue++;
-                setCircles(currentValue);
+            case R.id.red_circles_2:
+                setCircles(2);
                 break;
-            case 2:
-                currentValue++;
-                setCircles(currentValue);
+            case R.id.red_circles_3:
+                setCircles(3);
                 break;
-            case 3:
-                currentValue = 0;
-                setCircles(currentValue);
+            default :
+                setCircles(0);
                 break;
-        }
+       }
     }
-    /* override method starts here*/
+    /* override method STOPS here*/
 
     /* my method */
     private void setCircles(int currentValue) {
-        if(currentValue == 0)
             for (ImageView v: circles)
-                v.setBackgroundResource(R.color.Transparent);
-        else
-            for (int i =0; i<(currentValue-1);i++)
-                circles[i].setBackgroundResource(R.color.pink);
+                v.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.symptom_red_circle));
+            for (int i =0; i<(currentValue);i++)
+                circles[i].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.symptom_red_circle_checked));
+
     }
 }
