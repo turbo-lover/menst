@@ -37,7 +37,7 @@
 
     <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="@string/start_calendar"
@@ -45,6 +45,8 @@
             android:textSize="@dimen/text_size"
             android:id="@+id/start_calendar_btn"
             android:background="@drawable/btn_black"
+            android:textAlignment="gravity"
+            android:gravity="bottom"
             />
 
     <LinearLayout
@@ -89,9 +91,9 @@
                         android:textAlignment="gravity"
                         android:gravity="center"
                         />
-                <com.menst_verstka.composite.Number_picker
+                <RelativeLayout
                         android:layout_below="@+id/cycle_duration_textview"
-                        android:id="@+id/cycle_duration"
+                        android:id="@+id/cycle_duration_holder"
                         android:layout_width="115dp"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
@@ -116,8 +118,8 @@
                         android:textAlignment="gravity"
                         android:gravity="center"
                         />
-                <com.menst_verstka.composite.Number_picker
-                        android:id="@+id/menstruation_duration"
+                <RelativeLayout
+                        android:id="@+id/menstruation_duration_holder"
                         android:layout_width="115dp"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
@@ -158,6 +160,7 @@
                     android:orientation="horizontal"
                     >
                 <RadioButton
+                        android:id="@+id/choose_week_start_radio1"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
@@ -165,8 +168,10 @@
                         android:text="@string/device_settings"
                         android:layout_weight="1.5"
                         android:button="@drawable/black_radio_btn"
+                        android:checked="true"
                         />
                 <RadioButton
+                        android:id="@+id/choose_week_start_radio2"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
@@ -176,6 +181,7 @@
                         android:button="@drawable/black_radio_btn"
                         />
                 <RadioButton
+                        android:id="@+id/choose_week_start_radio3"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
@@ -219,6 +225,7 @@
                     android:orientation="horizontal"
                     >
                 <RadioButton
+                        android:id="@+id/choose_language_radio1"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
@@ -226,8 +233,10 @@
                         android:text="@string/russian"
                         android:layout_weight="1.5"
                         android:button="@drawable/black_radio_btn"
+                        android:checked="true"
                         />
                 <RadioButton
+                        android:id="@+id/choose_language_radio2"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
@@ -237,6 +246,7 @@
                         android:button="@drawable/black_radio_btn"
                         />
                 <RadioButton
+                        android:id="@+id/choose_language_radio3"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
@@ -273,7 +283,9 @@
             <ImageView
                     android:layout_height="20dp"
                     android:layout_width="20dp"
-                    android:background="@color/white"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/Transparent"
+                    android:src="@drawable/calendar_image"
                     android:layout_below="@+id/change_settings_textview"
                     android:layout_toLeftOf="@+id/anchor"
                     android:id="@+id/settings_btn"

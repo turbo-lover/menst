@@ -13,6 +13,7 @@ public class myPreferencesWorker {
 
     final private String location = "calendarPref";
     final private String preferenceStartOfTheWeek = "startOfTheWeek";
+    final private String preferenceLanguage = "language";
     final private String preferenceCycleDuration = "cycleDuration";
     final private String preferenceDurationOfMenstruation = "durationOfMenstruation";
 
@@ -44,6 +45,14 @@ public class myPreferencesWorker {
         ed.commit();
     }
 
+    public void setLanguage(String language) {
+        ContextWrapper cw = new ContextWrapper(context);
+        sPref = cw.getSharedPreferences(location, Context.MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putString(preferenceLanguage ,language);
+        ed.commit();
+    }
+
     public String getStartOfTheWeek() {
         ContextWrapper cw = new ContextWrapper(context);
         sPref = cw.getSharedPreferences(location, Context.MODE_PRIVATE);
@@ -60,5 +69,15 @@ public class myPreferencesWorker {
         ContextWrapper cw = new ContextWrapper(context);
         sPref = cw.getSharedPreferences(location, Context.MODE_PRIVATE);
         return sPref.getString(preferenceDurationOfMenstruation,"");
+    }
+
+    public String getLanguage() {
+        ContextWrapper cw = new ContextWrapper(context);
+        sPref = cw.getSharedPreferences(location, Context.MODE_PRIVATE);
+        return sPref.getString(preferenceLanguage,"");
+    }
+
+    public boolean isEmpty() {
+        return (getLanguage().isEmpty() || getCycleDuration().isEmpty() || getDurationOfMenstruation().isEmpty() || getStartOfTheWeek().isEmpty());
     }
 }
