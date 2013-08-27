@@ -47,11 +47,8 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
         MAX_VALUE = max;
         MIN_VALUE = min;
 
-
-       if(  isInEditMode()) {
-            Initialize_Component();
-            SetEventListeners();
-       }
+        Initialize_Component();
+        SetEventListeners();
     }
 
     private void SetEventListeners() {
