@@ -17,7 +17,7 @@ public class SymptomActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.symptom_view);
         Initialize_Component();
         SetEventListeners();
     }
@@ -28,7 +28,7 @@ public class SymptomActivity extends Activity {
 
     private void Initialize_Component() {
 
-        container = (LinearLayout) findViewById(R.id.symptom_element_container);
+        container = (LinearLayout) findViewById(R.id.symptom_view_container);
         TypedArray images_array = getResources().obtainTypedArray(R.array.symptoms_icon);
         for(int i = 0, c =0;i<container.getChildCount();i++)
         {
