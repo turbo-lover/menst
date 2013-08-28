@@ -57,6 +57,8 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     /* setters starts here*/
     public void setCurrentValue(int currentValue) {
         this.currentValue = currentValue;
+        //i must set this value in graphical representation
+        setCircles(currentValue);
     }
     public void setText(CharSequence text) {
         this.text.setText(text);
