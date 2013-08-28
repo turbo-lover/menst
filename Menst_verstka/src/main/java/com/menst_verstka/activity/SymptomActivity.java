@@ -2,17 +2,13 @@ package com.menst_verstka.activity;/**
  * Created by turbo_lover on 22.08.13.
  */
 
-import android.app.Activity;
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.widget.LinearLayout;
-import com.menst_verstka.R;
-import com.menst_verstka.composite.symptomElement;
+import com.menst_verstka.composite.symptomView;
 import com.menst_verstka.utils.frameActivity;
 
 public class SymptomActivity extends frameActivity {
 
+    symptomView sv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +21,8 @@ public class SymptomActivity extends frameActivity {
     }
 
     private void Initialize_Component() {
-
+        sv = new symptomView(this);
+        setContainer(sv);
     }
 
 
