@@ -96,7 +96,7 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
         }
     }
 
-    private void setValue(double v) {
+    public void setValue(double v) {
         try {
             Formatter f = new Formatter(Locale.ENGLISH);
             f.format(format,v);
@@ -120,5 +120,9 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
 
     public double getValue() {
         return Double.parseDouble(String.valueOf(value.getText()));
+    }
+
+    public String getStringValue() {
+        return value.getText().toString();
     }
 }
