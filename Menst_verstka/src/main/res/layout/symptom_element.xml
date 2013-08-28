@@ -15,11 +15,11 @@
         <ImageView
                 android:id="@+id/elementImage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 />
-        <TextView
+        <com.menst_verstka.utils.AutoResizeTextView
                 android:id="@+id/elementText"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/elementImage"
                 android:textAlignment="gravity"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="2dp"
                 android:gravity="center"/>
         </RelativeLayout>
     <View style="@style/Divider"
