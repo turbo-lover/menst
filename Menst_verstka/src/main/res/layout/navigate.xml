@@ -12,9 +12,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:src="@drawable/arrow_left"/>
-    <View style="@style/NavigationDivider"
-          android:layout_weight="0.001"
-            />
+    <View style="@style/NavigationDivider" />
     <TextView
             android:id="@+id/navigate_Date"
             android:layout_weight="3"
@@ -25,9 +23,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             />
-    <View style="@style/NavigationDivider"
-          android:layout_weight="0.001"
-            />
+    <View style="@style/NavigationDivider" />
     <ImageView
             android:id="@+id/navigate_right_arrow"
             android:layout_weight="1"
