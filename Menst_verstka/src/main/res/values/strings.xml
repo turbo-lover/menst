@@ -24,10 +24,11 @@
     <string name="russian">Русский</string>
     <string name="english">Английский</string>
     <string name="arabic">Арабский</string>
+    <string name="calendar_title">Календарь менструации - Sister</string>
     <!-- Вот такой вот массивчик для перевода приложения
         Используется
     -->
-    <string-array name="symptoms">
+    <string-array name="symptoms_text">
        <item>Аппетит</item>
        <item>Бессонница</item>
        <item>Повышение температуры</item>

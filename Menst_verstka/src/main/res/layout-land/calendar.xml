@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+    <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:text="@string/calendar_title"
+            android:textAlignment="gravity"
+            android:gravity="center"
+            android:id="@+id/calendar_title"
+            />
+    <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="30dp"
+            android:id="@+id/navigation_rl"
+            android:layout_below="@+id/calendar_title"
+            android:layout_alignParentLeft="true"
+            />
+    <LinearLayout
+            android:id="@+id/months_holder"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/calendar_title"
+            android:layout_toRightOf="@+id/navigation_rl"
+            >
+    </LinearLayout>
+</RelativeLayout>
