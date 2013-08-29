@@ -5,10 +5,12 @@ package com.menst_verstka.activity;/**
 import android.os.Bundle;
 import com.menst_verstka.composite.symptomView;
 import com.menst_verstka.utils.frameActivity;
+import com.menst_verstka.utils.navigate;
 
 public class SymptomActivity extends frameActivity {
 
     symptomView sv;
+    navigate nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +24,10 @@ public class SymptomActivity extends frameActivity {
 
     private void Initialize_Component() {
         sv = new symptomView(this);
+        nav = new navigate(this);
+        nav.setDate("25 МАЯ 2013");
         setContainer(sv);
+        setHeader(nav);
     }
 
 
