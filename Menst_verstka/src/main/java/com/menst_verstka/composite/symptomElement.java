@@ -2,13 +2,14 @@ package com.menst_verstka.composite;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.menst_verstka.R;
+import com.menst_verstka.utils.AutoResizeTextView;
 
 /**
  * Created by turbo_lover on 21.08.13.
@@ -20,7 +21,7 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     private ImageView circle1;
     private ImageView circle2;
     private ImageView circle3;
-    private TextView text;
+    private AutoResizeTextView text;
     private int currentValue = 0;
 
     public symptomElement(Context context, AttributeSet attrs) {
@@ -47,7 +48,7 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
         li.inflate(R.layout.symptom_element,this);
 
         image = (ImageView) findViewById(R.id.elementImage);
-        text = (TextView) findViewById(R.id.elementText);
+        text = (AutoResizeTextView) findViewById(R.id.elementText);
 
         circle1 =(ImageView)this.findViewById(R.id.red_circles_1);
         circle2 =(ImageView)this.findViewById(R.id.red_circles_2);
@@ -64,10 +65,11 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
         this.text.setText(text);
     }
 
-    public void setImage(int id) {
-        image.setImageResource(id);
+    public void setImage(Drawable draw) {
+        image.setImageDrawable(draw);
     }
     /* setters ends*/
+    /* */
 
     /* override method starts here*/
     @Override

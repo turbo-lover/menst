@@ -9,5 +9,5 @@
     <dimen name="text_size_big">14sp</dimen>
     <dimen name="margin_top">4dp</dimen>
     <dimen name="null_dp">0dp</dimen>
-    <dimen name="including_symptom_element">190dp</dimen>
+    <dimen name="including_symptom_element">120dp</dimen>
 </resources>
