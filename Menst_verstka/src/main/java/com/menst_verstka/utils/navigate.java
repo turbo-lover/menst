@@ -3,7 +3,6 @@ package com.menst_verstka.utils;/**
  */
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -18,13 +17,6 @@ public class navigate extends LinearLayout {
         super(context);
         Initialize_Component();
         //SetEventListeners();
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        canvas.save();
-
-        super.onDraw(canvas);
     }
 
     public void setDate(String date) {
