@@ -6,17 +6,17 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@color/pink">
-
     <ImageView
+            android:id="@+id/navigate_left_arrow"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:src="@drawable/arrow_left"/>
     <View style="@style/NavigationDivider"
-          android:layout_weight="0.005"
+          android:layout_weight="0.001"
             />
     <TextView
-            android:id="@+id/navigateDate"
+            android:id="@+id/navigate_Date"
             android:layout_weight="3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -26,13 +26,13 @@
             android:textColor="@color/white"
             />
     <View style="@style/NavigationDivider"
-          android:layout_weight="0.01"
+          android:layout_weight="0.001"
             />
     <ImageView
+            android:id="@+id/navigate_right_arrow"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:src="@drawable/arrow_right"
             />
-
 </LinearLayout>
