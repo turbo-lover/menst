@@ -25,9 +25,10 @@ public class SymptomActivity extends frameActivity {
     private void Initialize_Component() {
         sv = new symptomView(this);
         nav = new navigate(this);
-        nav.setDate("25 –ú–ê–Ø 2013");
+        nav.setDate("25 Ã¿ﬂ 2013");
+        setContainer(nav);
         setContainer(sv);
-        setHeader(nav);
+
     }
 
 

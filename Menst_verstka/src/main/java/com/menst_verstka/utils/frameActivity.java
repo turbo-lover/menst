@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import android.widget.LinearLayout;
 import com.menst_verstka.R;
 
 /**
@@ -12,7 +13,8 @@ import com.menst_verstka.R;
  */
 public class frameActivity extends Activity {
 
-    private FrameLayout header,container;
+    private FrameLayout header;
+    private LinearLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,6 @@ public class frameActivity extends Activity {
 
         InitializeComponent();
         SetListeners();
-
     }
 
     /**
@@ -33,7 +34,7 @@ public class frameActivity extends Activity {
 
     protected void InitializeComponent() {
        header = (FrameLayout) findViewById(R.id.header);
-       container = (FrameLayout) findViewById(R.id.container);
+       container = (LinearLayout) findViewById(R.id.container);
     }
 
     protected void setHeader(View v) {

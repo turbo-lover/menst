@@ -37,7 +37,7 @@ public class symptomView extends LinearLayout {
     private void setSympomElements() {
         Resources resources = getResources();
         TypedArray images_array = resources.obtainTypedArray(R.array.symptoms_icon);
-        int width = resources.getDimensionPixelSize(R.dimen.including_symptom_element);
+        int width = resources.getDimensionPixelSize(R.dimen.including_width_symptom_element);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,0);
         lp.weight =1;
         for(int i = 0, c =0;i<container.getChildCount();i++)
