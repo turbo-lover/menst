@@ -1,19 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <FrameLayout
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:background="@drawable/background">
+    <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        />
-    <FrameLayout
+        android:layout_height="@dimen/null_dp"
+        android:layout_weight="0.7"
+        >
+        <TextView
+            android:id="@+id/header_text"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/white_text"
+            />
+        <ImageView
+            android:id="@+id/header_setting_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/calendar_image"
+            />
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/null_dp"
+        >
+        <ImageView
+            android:id="@+id/nav_bar_back_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentLeft="true"
+            />
+        <View
+            style="@style/NavigationDivider"
+            android:layout_toRightOf="@+id/nav_bar_back_btn"
+            />
+        <ImageView
+            android:id="@+id/nav_bar_fwd_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            />
+        <View
+            style="@style/NavigationDivider"
+            android:layout_toLeftOf="@+id/nav_bar_fwd_btn"
+            />
+        <TextView
+            android:id="@+id/nav_bar_text"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/white_text"
+            />
+        </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="@dimen/null_dp"
+        android:layout_weight="8.3"
         />
 
 </LinearLayout>
