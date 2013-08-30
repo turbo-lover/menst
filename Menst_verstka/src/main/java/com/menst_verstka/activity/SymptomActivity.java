@@ -2,7 +2,10 @@ package com.menst_verstka.activity;/**
  * Created by turbo_lover on 22.08.13.
  */
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import com.google.gson.Gson;
+import com.menst_verstka.composite.symptomElement;
 import com.menst_verstka.composite.symptomView;
 import com.menst_verstka.utils.frameActivity;
 import com.menst_verstka.utils.navigate;
@@ -24,10 +27,17 @@ public class SymptomActivity extends frameActivity {
 
     private void Initialize_Component() {
         sv = new symptomView(this);
-        nav = new navigate(this);
-        nav.setDate("25 Ã¿ﬂ 2013");
-        setContainer(nav);
         setContainer(sv);
+
+        Gson g = new Gson();
+        String s = g.toJson(sv.getSymptoms(), symptomElement.class);
+
+
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        ad.setMessage(s);
+
+        ad.show();
+
 
     }
 
