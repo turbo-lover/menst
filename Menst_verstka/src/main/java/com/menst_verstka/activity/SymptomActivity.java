@@ -5,8 +5,9 @@ package com.menst_verstka.activity;/**
 import android.app.AlertDialog;
 import android.os.Bundle;
 import com.google.gson.Gson;
-import com.menst_verstka.composite.symptomElement;
+import com.google.gson.JsonObject;
 import com.menst_verstka.composite.symptomView;
+import com.menst_verstka.utils.DBHelper;
 import com.menst_verstka.utils.frameActivity;
 import com.menst_verstka.utils.navigate;
 
@@ -30,11 +31,19 @@ public class SymptomActivity extends frameActivity {
         setContainer(sv);
 
         Gson g = new Gson();
-        String s = g.toJson(sv.getSymptoms(), symptomElement.class);
+
+        JsonObject jo  = new JsonObject() ;
+        jo.add("symptom",g.toJsonTree(sv.getSymptoms_value()));
 
 
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
-        ad.setMessage(s);
+        ad.setMessage(jo.toString());
+
+        DBHelper db = new DBHelper(this);
+
+
+
+
 
         ad.show();
 
