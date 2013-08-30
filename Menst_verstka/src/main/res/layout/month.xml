@@ -30,7 +30,7 @@
             android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
-        android:layout_weight="1.5"
+        android:layout_weight="1.2"
         android:orientation="horizontal"
         android:id="@+id/month_and_year"
         android:padding="0dp"

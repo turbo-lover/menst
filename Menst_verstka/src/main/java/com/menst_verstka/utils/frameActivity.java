@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.menst_verstka.R;
+import com.menst_verstka.activity.SettingsActivity;
 
 /**
  * Created by Turbo on 28.08.13.
@@ -21,13 +22,17 @@ public class frameActivity extends Activity implements View.OnClickListener{
     protected LinearLayout content;
     private TextView header_text,nav_bar_text;
     private ImageView header_setting_img,nav_bar_back,nav_bar_fwd;
+    protected myPreferencesWorker preferencesWorker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         InitializeComponent();
         SetEventListeners();
+        SetCompositeElements();
     }
+
+    protected void SetCompositeElements() { }
 
     protected void SetEventListeners() {
         header_setting_img.setOnClickListener(this);
@@ -36,6 +41,8 @@ public class frameActivity extends Activity implements View.OnClickListener{
     }
 
     protected void InitializeComponent() {
+        preferencesWorker = new myPreferencesWorker(this);
+        setContentView(R.layout.frame_activity);
         header = (RelativeLayout) findViewById(R.id.header);
         nav_bar = (RelativeLayout) findViewById(R.id.nav_bar);
         content = (LinearLayout) findViewById(R.id.container);
@@ -66,7 +73,7 @@ public class frameActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.header_setting_img) {
-           // startActivity(new Intent(this,SettingActiviy.class));
+            startActivity(new Intent(this,SettingsActivity.class));
         }
     }
 }
