@@ -7,7 +7,7 @@ import com.menst_verstka.composite.symptomView;
 import com.menst_verstka.utils.frameActivity;
 
 public class SymptomActivity extends frameActivity {
-
+/*
     symptomView sv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +25,5 @@ public class SymptomActivity extends frameActivity {
         setContainer(sv);
     }
 
-
+*/
 }

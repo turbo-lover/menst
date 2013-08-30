@@ -55,12 +55,14 @@ public class month extends RelativeLayout {
         month_and_year = (LinearLayout) findViewById(R.id.month_and_year);
     }
 
-    public void SetMonth(int year,int month) {
-        calendar = new GregorianCalendar(year,month,0);
+    public void SetMonth(Calendar calendar) {
+        this.calendar = calendar;
+        int days_in_month = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         for (int i = 0;i < 3; i++) {
             for (int j = 0;j < 11;j++) {
                 calendarItem calendarItem = new calendarItem(pContext);
-                calendarItem.setElement(Integer.toString((i*11) + j + 1),0,0,"",0,"","",0);
+                if(((i*11) + j + 1) <= days_in_month) {
+                    calendarItem.setElement(Integer.toString((i*11) + j + 1),0,0,"",0,"","",0); }
                 calendarItem.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1f));
                 month_parts[i].addView(calendarItem);
             }
@@ -68,6 +70,10 @@ public class month extends RelativeLayout {
         Date d = new Date(calendar.getTimeInMillis());
         this.month.setText(new SimpleDateFormat("MMMM").format(d));
         this.year.setText(new SimpleDateFormat("yyyy").format(d));
+    }
+
+    public Calendar GetCalendar() {
+        return calendar;
     }
 
 }

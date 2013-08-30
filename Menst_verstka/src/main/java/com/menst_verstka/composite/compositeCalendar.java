@@ -1,0 +1,90 @@
+package com.menst_verstka.composite;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
+import com.menst_verstka.R;
+
+import java.util.Calendar;
+
+/**
+ * Created by Alexander on 30.08.13.
+ */
+public class compositeCalendar extends RelativeLayout implements View.OnClickListener {
+    private LinearLayout months;
+    private ImageView back,fwd;
+    private LinearLayout.LayoutParams p;
+    private Context pContext;
+
+    public compositeCalendar(Context context) {
+        super(context);
+        InitializeComponent(context);
+        SetCompositeElements();
+        SetEventListeners();
+    }
+    private void SetMonths() {
+        Calendar c  = Calendar.getInstance();
+        c.set(Calendar.DAY_OF_MONTH,1);
+        month m1 = new month(pContext);
+        month m2 = new month(pContext);
+        month m3 = new month(pContext);
+        c.add(Calendar.MONTH,-1);
+        m1.SetMonth(c);
+        c.add(Calendar.MONTH,1);
+        m2.SetMonth(c);
+        c.add(Calendar.MONTH,1);
+        m3.SetMonth(c);
+        months.addView(m1,p);
+        months.addView(m2,p);
+        months.addView(m3,p);
+    }
+
+    private void SetEventListeners() {
+        back.setOnClickListener(this);
+        fwd.setOnClickListener(this);
+    }
+
+    private void SetCompositeElements() {
+
+    }
+
+    private void InitializeComponent(Context pContext) {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.calendar, this);
+        this.pContext = pContext;
+        months = (LinearLayout) findViewById(R.id.months_holder);
+        back = (ImageView) findViewById(R.id.BackCalendarButton);
+        fwd = (ImageView) findViewById(R.id.FwdCalendarButton);
+        p = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,1f);
+        SetMonths();
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.FwdCalendarButton:
+                GoToMonth(true);
+                break;
+            case R.id.BackCalendarButton:
+                GoToMonth(false);
+                break;
+        }
+    }
+
+    private void GoToMonth(boolean direction) {
+        month m = (month) months.getChildAt((direction)?0:months.getChildCount() - 1);
+        Calendar c = m.GetCalendar();
+        c.add(Calendar.MONTH,(direction)?1:-1);
+        months.removeView(m);
+        m = new month(pContext);
+        m.SetMonth(c);
+        m.setLayoutParams(p);
+        months.addView(m,(direction)? months.getChildCount():0);
+    }
+}

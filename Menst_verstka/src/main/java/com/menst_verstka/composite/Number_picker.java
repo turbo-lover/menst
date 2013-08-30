@@ -17,21 +17,16 @@ import java.util.Locale;
 
 
 public class Number_picker extends LinearLayout  implements View.OnClickListener{
-
     TextView value;
     Button minus,plus;
     String format;
-
     double STEP,MAX_VALUE,MIN_VALUE;
-
-
     public Number_picker(Context context, AttributeSet attrs) {
         super(context, attrs);
 
             Initialize_Component();
             SetEventListeners();
     }
-
     /***
      *
      * @param context
