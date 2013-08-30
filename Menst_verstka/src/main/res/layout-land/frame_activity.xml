@@ -9,9 +9,10 @@
     android:paddingTop="@dimen/null_dp"
     android:background="@drawable/background">
     <RelativeLayout
+        android:layout_weight="1"
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/null_dp"
         android:paddingBottom="6dp"
         >
         <TextView
@@ -32,9 +33,11 @@
             />
         </RelativeLayout>
     <RelativeLayout
+        android:layout_weight="1"
         android:id="@+id/nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/null_dp"
+        android:background="@color/pink"
         >
         <ImageView
             android:id="@+id/nav_bar_back_btn"
@@ -65,10 +68,11 @@
             />
         </RelativeLayout>
     <LinearLayout
+        android:layout_weight="6"
         android:orientation="horizontal"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/null_dp"
         />
 
 </LinearLayout>

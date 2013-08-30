@@ -1,36 +1,31 @@
 package com.menst_verstka.composite;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.menst_verstka.R;
+import com.menst_verstka.activity.DayParamActivity;
 
 /**
  * Created by Alexander on 28.08.13.
  */
 public class calendarItem extends RelativeLayout {
+
     private TextView date,temperature_txt,abstinence, weight;
     private ImageView symptom,mood,temperature_img,pill;
     public calendarItem(Context context) {
         super(context);
-        InitializeComponent();
+        InitializeComponent(context);
     }
 
-    public calendarItem(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        InitializeComponent();
-    }
-
-    public calendarItem(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        InitializeComponent();
-    }
-
-    private void InitializeComponent() {
+    private void InitializeComponent(Context pContext) {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.calendar_item, this);
         date = (TextView) findViewById(R.id.calendar_item_date);

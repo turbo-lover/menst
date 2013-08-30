@@ -1,8 +1,11 @@
 package com.menst_verstka.composite;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
@@ -11,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.menst_verstka.R;
+import com.menst_verstka.activity.DayParamActivity;
 import com.menst_verstka.utils.rotateTextView;
 
 import java.text.SimpleDateFormat;
@@ -21,7 +25,7 @@ import java.util.GregorianCalendar;
 /**
  * Created by Alexander on 28.08.13.
  */
-public class month extends RelativeLayout {
+public class month extends RelativeLayout implements View.OnClickListener {
     public rotateTextView month,year;
     private LinearLayout[] month_parts;
     private LinearLayout month_and_year;
@@ -62,6 +66,7 @@ public class month extends RelativeLayout {
             for (int j = 0;j < 11;j++) {
                 calendarItem calendarItem = new calendarItem(pContext);
                 if(((i*11) + j + 1) <= days_in_month) {
+                    calendarItem.setOnClickListener(this);
                     calendarItem.setElement(Integer.toString((i*11) + j + 1),0,0,"",0,"","",0); }
                 calendarItem.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1f));
                 month_parts[i].addView(calendarItem);
@@ -76,4 +81,8 @@ public class month extends RelativeLayout {
         return calendar;
     }
 
+    @Override
+    public void onClick(View view) {
+        ((Activity)pContext).startActivityForResult(new Intent(pContext,DayParamActivity.class),1);
+    }
 }

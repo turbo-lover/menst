@@ -73,7 +73,7 @@ public class frameActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.header_setting_img) {
-            startActivity(new Intent(this,SettingsActivity.class));
+            startActivityForResult(new Intent(this,SettingsActivity.class),1);
         }
     }
 }

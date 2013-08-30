@@ -1,6 +1,7 @@
 package com.menst_verstka.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,5 +36,9 @@ public class CalendarActivity extends frameActivity implements View.OnClickListe
         HideNavBar();
         SetHeaderText(getString(R.string.calendar_title));
         content.addView(cmpCalendar);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
     }
 }

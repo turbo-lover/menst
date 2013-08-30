@@ -21,6 +21,10 @@
     <string name="calendar_title">Календарь менструации - Sister</string>
     <string name="main_header_text">  Добро пожаловать в <b>«Календарь менструации - Sister»!</b> \n Для дальнейшей работы, пожалуйста, выполните первоначальную настройку.</string>
     <string name="save_settings">Сохранить настройки</string>
+    <string name="menstruation_start">Начало менструации</string>
+    <string name="menstruation_end">Конец менструации</string>
+    <string name="delete_param">Очистить параметр</string>
+    <string name="back_to_calendar">Вернутся в календарь</string>
     <!-- Вот такой вот массивчик для перевода приложения
         Используется
     -->

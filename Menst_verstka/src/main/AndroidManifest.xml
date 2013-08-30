@@ -25,7 +25,8 @@
             android:screenOrientation="landscape"
             ></activity>
 
-
+        <activity android:name=".activity.DayParamActivity"
+            android:screenOrientation="landscape" ></activity>
         <activity
                 android:name=".activity.SymptomActivity"
                 android:screenOrientation="landscape" >

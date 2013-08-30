@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/menstruation_start"
+            android:text="@string/menstruation_start"
+            android:layout_weight="1"
+            android:layout_width="@dimen/null_dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/menstruation_end"
+            android:text="@string/menstruation_end"
+            android:layout_weight="1"
+            android:layout_width="@dimen/null_dp"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/delete_param"
+            android:text="@string/delete_param"
+            android:layout_weight="1"
+            android:layout_width="@dimen/null_dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/back_to_calendar"
+            android:text="@string/back_to_calendar"
+            android:layout_weight="1"
+            android:layout_width="@dimen/null_dp"
+            android:layout_height="wrap_content"/>
+        </LinearLayout>
+</RelativeLayout>

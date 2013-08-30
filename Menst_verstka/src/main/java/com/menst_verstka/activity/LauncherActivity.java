@@ -11,7 +11,7 @@ public class LauncherActivity extends SettingsActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //CheckParams();
+        CheckParams();
         super.onCreate(savedInstanceState);
     }
 

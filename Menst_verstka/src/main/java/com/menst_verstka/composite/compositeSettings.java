@@ -1,5 +1,6 @@
 package com.menst_verstka.composite;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
@@ -60,9 +61,9 @@ public class compositeSettings extends RelativeLayout implements View.OnClickLis
     private void GoToCalendar() {
         Intent i = new Intent(pContext,CalendarActivity.class);
         if(pContext.getClass().equals(LauncherActivity.class)) {
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            pContext.startActivity(i);
         }
-        pContext.startActivity(i);
+        ((Activity)pContext).finish();
     }
 
     private void SetCompositeElements() {
