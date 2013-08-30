@@ -15,7 +15,8 @@ import java.util.List;
  */
 public class symptomView extends LinearLayout {
 
-    List<symptomElement> symptoms;
+    List<symptomElement> symptom_elemets;
+    List<Integer> symptoms_value;
     LinearLayout container;
     public symptomView(Context context) {
         super(context);
@@ -24,14 +25,42 @@ public class symptomView extends LinearLayout {
         li.inflate(R.layout.symptom_view,this);
 
         container = (LinearLayout) findViewById(R.id.symptom_view_container);
-        symptoms = new ArrayList<symptomElement>();
+        symptom_elemets = new ArrayList<symptomElement>();
+        symptoms_value = new ArrayList<Integer>();
 
         setSympomElements();
     }
 
-    public List<symptomElement> getSymptoms() {
-        return symptoms;
+    public List<Integer> getSymptoms_value() {
+
+        //получаем последнее соостояние
+        element_to_value();
+        //and returning this state
+        return symptoms_value;
     }
+
+    public void setSymptoms_value(List<Integer> value) {
+        //write incoming value to elemets? thats changed state
+        value_to_elements(value);
+
+        symptoms_value = value;
+    }
+
+    private void value_to_elements(List<Integer> value) {
+        int i =0;
+        for(symptomElement se:symptom_elemets){
+            se.setCurrentValue(value.get(i));
+            i++;
+        }
+    }
+
+    private void element_to_value() {
+        for(symptomElement se:symptom_elemets){
+            symptoms_value.add(se.getCurrentValue());
+        }
+    }
+
+
 
     //maybe you should reorganize this shit
     private void setSympomElements() {
@@ -47,14 +76,14 @@ public class symptomView extends LinearLayout {
             {
                 symptomElement s = new symptomElement(getContext());
 
-                s.setCurrentValue(1);
+                s.setCurrentValue(c);//TODO add features that analyze incoming intent;
                 s.setText(resources.getTextArray(R.array.symptoms_text)[c]);
                 s.setLayoutParams(lp);
                 s.setImage(images_array.getDrawable(c));
 
                 if (column != null) {
                     column.addView(s);
-                    symptoms.add(s);
+                    symptom_elemets.add(s);
                 }
             }
         }

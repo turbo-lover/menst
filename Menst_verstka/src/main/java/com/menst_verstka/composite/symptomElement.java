@@ -14,7 +14,7 @@ import com.menst_verstka.utils.AutoResizeTextView;
 /**
  * Created by turbo_lover on 21.08.13.
  */
-public class symptomElement extends LinearLayout implements View.OnClickListener {
+public class symptomElement extends LinearLayout implements View.OnClickListener{
     /* Элемент который загружаем в таблицу симптомов */
     private ImageView image;
     ImageView [] circles;
@@ -55,21 +55,26 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
         circle3 =(ImageView)this.findViewById(R.id.red_circles_3);
         circles = new ImageView[]{circle1,circle2,circle3};
     }
-    /* setters starts here*/
-    public void setCurrentValue(int currentValue) {
-        this.currentValue = currentValue;
-        //i must set this value in graphical representation
-        setCircles(currentValue);
-    }
+    /* setters getters starts here*/
     public void setText(CharSequence text) {
         this.text.setText(text);
+    }
+
+
+    public void setCurrentValue(int currentValue) {
+        this.currentValue =  currentValue;
+        //i must set this value in graphical representation
+        //setCircles( currentValue);
     }
 
     public void setImage(Drawable draw) {
         image.setImageDrawable(draw);
     }
+
+    public int getCurrentValue() {
+        return currentValue;
+    }
     /* setters ends*/
-    /* */
 
     /* override method starts here*/
     @Override
@@ -101,4 +106,6 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
                 circles[i].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.symptom_red_circle_checked));
 
     }
+
+
 }
