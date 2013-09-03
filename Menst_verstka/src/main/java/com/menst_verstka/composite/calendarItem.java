@@ -10,8 +10,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.JsonObject;
 import com.menst_verstka.R;
 import com.menst_verstka.activity.DayParamActivity;
+
+import java.util.Calendar;
 
 /**
  * Created by Alexander on 28.08.13.
@@ -20,6 +23,10 @@ public class calendarItem extends RelativeLayout {
 
     private TextView date,temperature_txt,abstinence, weight;
     private ImageView symptom,mood,temperature_img,pill;
+
+    private JsonObject jsonObject;
+    private Calendar calendar;
+
     public calendarItem(Context context) {
         super(context);
         InitializeComponent(context);
@@ -38,8 +45,11 @@ public class calendarItem extends RelativeLayout {
         abstinence = (TextView) findViewById(R.id.calendar_item_abstinence);
     }
 
-    public void setElement(String date,int symptom,int mood,String temperature_txt,int temperature_img,String abstinence,String weight,int pill) {
-        this.date.setText(date);
+    public void setElement(Calendar calendar,JsonObject jsonObject) {
+        this.calendar = calendar;
+        this.jsonObject = jsonObject;
+        this.date.setText(Integer.toString(this.calendar.get(Calendar.DAY_OF_MONTH)));
+        /*
         this.symptom.setImageResource(symptom);
         this.mood.setImageResource(mood);
         this.temperature_txt.setText(temperature_txt);
@@ -47,5 +57,6 @@ public class calendarItem extends RelativeLayout {
         this.abstinence.setText(abstinence);
         this.weight.setText(weight);
         this.pill.setImageResource(pill);
+        */
     }
 }

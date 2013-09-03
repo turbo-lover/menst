@@ -19,7 +19,7 @@ import java.util.Locale;
 public class Number_picker extends LinearLayout  implements View.OnClickListener{
     TextView value;
     Button minus,plus;
-    String format;
+    public String format;
     double STEP,MAX_VALUE,MIN_VALUE;
     public Number_picker(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -77,6 +77,18 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
         }
     }
 
+    public void addValue(double add) {
+        double v = getValue();
+        STEP = add;
+        v+= STEP;
+        try {
+            if(v<= MAX_VALUE && v>= MIN_VALUE) {
+                setValue(v);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private void IncreaseValue() {
         double v = getValue();

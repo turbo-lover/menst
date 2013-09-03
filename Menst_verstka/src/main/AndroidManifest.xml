@@ -33,6 +33,11 @@
         </activity>
         <activity android:name=".activity.CalendarActivity"
                 android:screenOrientation="landscape"/>
+        <activity android:name=".activity.WeightActivity"
+            android:screenOrientation="landscape" />
+       <activity android:name=".activity.TemperatureActivity"
+           android:screenOrientation="landscape" />
+
     </application>
 
 </manifest>

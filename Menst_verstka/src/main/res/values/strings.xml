@@ -25,6 +25,16 @@
     <string name="menstruation_end">Конец менструации</string>
     <string name="delete_param">Очистить параметр</string>
     <string name="back_to_calendar">Вернутся в календарь</string>
+    <string name="symptoms">Симптомы</string>
+    <string name="namaz">Намаз</string>
+    <string name="abstinence">Пост</string>
+    <string name="notes">Заметки</string>
+    <string name="mood">Настроение</string>
+    <string name="temperature">ВМТ</string>
+    <string name="weight">Вес</string>
+    <string name="pill">Таблетка</string>
+    <string name="temperature_celsius">По Цельсию</string>
+    <string name="temperature_fahrenheit">По Фаренгейту</string>
     <!-- Вот такой вот массивчик для перевода приложения
         Используется
     -->

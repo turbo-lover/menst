@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.menst_verstka.R;
 import com.menst_verstka.activity.DayParamActivity;
+import com.menst_verstka.utils.DBHelper;
 import com.menst_verstka.utils.rotateTextView;
 
 import java.text.SimpleDateFormat;
@@ -31,6 +32,9 @@ public class month extends RelativeLayout implements View.OnClickListener {
     private LinearLayout month_and_year;
     private Context pContext;
     private Calendar calendar;
+    private static final int LANDSCAPE_TOTAL_CELLS = 33;
+    private static final int LANDSCAPE_CELLS_IN_ROW = 11;
+    private DBHelper db_helper;
     public month(Context context) {
         super(context);
         InitializeComponent(context);
@@ -57,22 +61,23 @@ public class month extends RelativeLayout implements View.OnClickListener {
         month_parts[1] = (LinearLayout) findViewById(R.id.part_2);
         month_parts[2] = (LinearLayout) findViewById(R.id.part_3);
         month_and_year = (LinearLayout) findViewById(R.id.month_and_year);
+        db_helper = new DBHelper(pContext);
     }
 
     public void SetMonth(Calendar calendar) {
         this.calendar = calendar;
         int days_in_month = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        for (int i = 0;i < 3; i++) {
-            for (int j = 0;j < 11;j++) {
-                calendarItem calendarItem = new calendarItem(pContext);
-                if(((i*11) + j + 1) <= days_in_month) {
-                    calendarItem.setOnClickListener(this);
-                    calendarItem.setElement(Integer.toString((i*11) + j + 1),0,0,"",0,"","",0); }
-                calendarItem.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1f));
-                month_parts[i].addView(calendarItem);
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1f);
+        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+        for(int i = 0;i < LANDSCAPE_TOTAL_CELLS;i++,calendar.add(Calendar.DAY_OF_MONTH,1)) {
+            calendarItem calendarItem = new calendarItem(pContext);
+            if(i < days_in_month) {
+                calendarItem.setOnClickListener(this);
+                calendarItem.setElement(calendar,db_helper.getRawJsonByDate(date_format.format(new Date(calendar.getTimeInMillis()))));
             }
+            month_parts[i/LANDSCAPE_CELLS_IN_ROW].addView(calendarItem,p);
         }
-        Date d = new Date(calendar.getTimeInMillis());
+        Date d = new Date(this.calendar.getTimeInMillis());
         this.month.setText(new SimpleDateFormat("MMMM").format(d));
         this.year.setText(new SimpleDateFormat("yyyy").format(d));
     }
@@ -85,4 +90,5 @@ public class month extends RelativeLayout implements View.OnClickListener {
     public void onClick(View view) {
         ((Activity)pContext).startActivityForResult(new Intent(pContext,DayParamActivity.class),1);
     }
+
 }

@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.menst_verstka.R;
+import com.menst_verstka.utils.Transforms;
 
 import java.util.Calendar;
 
@@ -18,7 +19,7 @@ import java.util.Calendar;
 public class compositeCalendar extends RelativeLayout implements View.OnClickListener {
     private LinearLayout months;
     private ImageView back,fwd;
-    private LinearLayout.LayoutParams p;
+    private LinearLayout.LayoutParams p,p_margin;
     private Context pContext;
 
     public compositeCalendar(Context context) {
@@ -35,13 +36,14 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         month m3 = new month(pContext);
         c.add(Calendar.MONTH,-1);
         m1.SetMonth(c);
-        c.add(Calendar.MONTH,1);
+        c.add(Calendar.MONTH, 1);
         m2.SetMonth(c);
         c.add(Calendar.MONTH,1);
         m3.SetMonth(c);
-        months.addView(m1,p);
-        months.addView(m2,p);
-        months.addView(m3,p);
+        months.addView(m1);
+        months.addView(m2);
+        months.addView(m3);
+        SetLayoutParams();
     }
 
     private void SetEventListeners() {
@@ -61,6 +63,8 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         back = (ImageView) findViewById(R.id.BackCalendarButton);
         fwd = (ImageView) findViewById(R.id.FwdCalendarButton);
         p = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,1f);
+        p_margin = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,1f);
+        p_margin.setMargins(0,Transforms.PxtDIP(4,pContext), 0,0);
         SetMonths();
     }
 
@@ -77,6 +81,13 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         }
     }
 
+    private void SetLayoutParams() {
+        for (int i = 0;i < months.getChildCount();i++) {
+            months.getChildAt(i).setLayoutParams((i == 0)?p:p_margin);
+        }
+
+    }
+
     private void GoToMonth(boolean direction) {
         month m = (month) months.getChildAt((direction)?0:months.getChildCount() - 1);
         Calendar c = m.GetCalendar();
@@ -84,7 +95,7 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         months.removeView(m);
         m = new month(pContext);
         m.SetMonth(c);
-        m.setLayoutParams(p);
         months.addView(m,(direction)? months.getChildCount():0);
+        SetLayoutParams();
     }
 }

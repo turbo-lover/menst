@@ -9,34 +9,30 @@
     android:paddingTop="@dimen/null_dp"
     android:background="@drawable/background">
     <RelativeLayout
-        android:layout_weight="1"
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/null_dp"
-        android:paddingBottom="6dp"
+        android:layout_height="30dp"
         >
         <TextView
             android:id="@+id/header_text"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             style="@style/white_text"
             />
         <ImageView
             android:id="@+id/header_setting_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="2dp"
             android:layout_marginRight="8dp"
-            android:src="@drawable/calendar_image"
+            android:src="@drawable/fucking_calendar_button"
             />
         </RelativeLayout>
     <RelativeLayout
-        android:layout_weight="1"
         android:id="@+id/nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/null_dp"
+        android:layout_height="25dp"
         android:background="@color/pink"
         >
         <ImageView
@@ -68,11 +64,12 @@
             />
         </RelativeLayout>
     <LinearLayout
-        android:layout_weight="6"
+        android:padding="4dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/null_dp"
+        android:layout_height="match_parent"
         />
 
 </LinearLayout>

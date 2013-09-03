@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:layout_marginBottom="4dp" >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"  >
     <LinearLayout
         android:layout_weight="11"
         android:id="@+id/month_parts"
@@ -30,6 +33,7 @@
             android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
+        android:background="@color/pink"
         android:layout_weight="1.2"
         android:orientation="horizontal"
         android:id="@+id/month_and_year"
@@ -46,8 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/month_textview"
-                android:textColor="@color/pink"
-                android:background="@color/white"
+                android:textColor="@color/white"
                 android:textAlignment="gravity"
                 android:gravity="center|top"
                 />
@@ -59,11 +62,10 @@
             android:id="@+id/yaer_rl"
             >
             <com.menst_verstka.utils.rotateTextView
-                android:background="@color/pink"
                 android:id="@+id/year_textview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/borderColor"
+                android:textColor="@color/white"
                 android:textAlignment="gravity"
                 android:gravity="center|top"
                 />
