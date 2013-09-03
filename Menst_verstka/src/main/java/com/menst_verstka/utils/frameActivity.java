@@ -1,47 +1,79 @@
 package com.menst_verstka.utils;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
-
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.menst_verstka.R;
+import com.menst_verstka.activity.SettingsActivity;
 
 /**
  * Created by Turbo on 28.08.13.
  */
-public class frameActivity extends Activity {
+public class frameActivity extends Activity implements View.OnClickListener{
 
-    private FrameLayout header;
-    private LinearLayout container;
+    private RelativeLayout header,nav_bar;
+    protected LinearLayout content;
+    private TextView header_text,nav_bar_text;
+    private ImageView header_setting_img,nav_bar_back,nav_bar_fwd;
+    protected myPreferencesWorker preferencesWorker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.frame_activity);
-
         InitializeComponent();
-        SetListeners();
+        SetEventListeners();
+        SetCompositeElements();
     }
 
-    /**
-     * For override :)
-     */
-    protected void SetListeners() {
+    protected void SetCompositeElements() { }
 
+    protected void SetEventListeners() {
+        header_setting_img.setOnClickListener(this);
+        nav_bar_fwd.setOnClickListener(this);
+        nav_bar_back.setOnClickListener(this);
     }
 
     protected void InitializeComponent() {
-       header = (FrameLayout) findViewById(R.id.header);
-       container = (LinearLayout) findViewById(R.id.container);
+        preferencesWorker = new myPreferencesWorker(this);
+        setContentView(R.layout.frame_activity);
+        header = (RelativeLayout) findViewById(R.id.header);
+        nav_bar = (RelativeLayout) findViewById(R.id.nav_bar);
+        content = (LinearLayout) findViewById(R.id.container);
+        header_text = (TextView) findViewById(R.id.header_text);
+        nav_bar_text = (TextView) findViewById(R.id.nav_bar_text);
+        header_setting_img = (ImageView) findViewById(R.id.header_setting_img);
+        nav_bar_back = (ImageView) findViewById(R.id.nav_bar_back_btn);
+        nav_bar_fwd = (ImageView) findViewById(R.id.nav_bar_fwd_btn);
     }
 
-    protected void setHeader(View v) {
-        header.addView(v);
+    protected void HideNavBar() {
+        nav_bar.setVisibility(View.GONE);
     }
 
-    public void setContainer(View v) {
-        container.addView(v);
+    protected void SetNavBar(String txt,int backImgRes,int fwdImgRes) {
+        nav_bar_text.setText(txt);
+        nav_bar_back.setImageResource(backImgRes);
+        nav_bar_fwd.setImageResource(fwdImgRes);
+    }
+
+    protected void HideHeaderSetting() {
+        header_setting_img.setVisibility(View.GONE);
+    }
+
+    protected void SetHeaderText(String str) {
+        header_text.setText(str);
+    }
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.header_setting_img) {
+            startActivityForResult(new Intent(this,SettingsActivity.class),1);
+        }
     }
 }

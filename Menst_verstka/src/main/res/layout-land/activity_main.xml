@@ -1,46 +1,12 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background"
-        android:paddingBottom="@dimen/null_dp"
-        android:paddingTop="@dimen/null_dp"
-        >
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/header_text_rl"
-            android:layout_marginBottom="4dp"
-            >
-        <TextView
-                android:id="@+id/hello_caption_first"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/hello_caption_first"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size"
-                android:textAlignment="gravity"
-                android:gravity="center"
-                />
-        <TextView
-                android:id="@+id/hello_caption_second"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size"
-                android:text="@string/hello_caption_second"
-                android:textColor="@color/white"
-                android:layout_below="@id/hello_caption_first"
-                android:textAlignment="gravity"
-                android:gravity="center"
-                />
-    </RelativeLayout>
-
+        android:layout_height="match_parent" >
     <Button
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/start_calendar"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size"
             android:id="@+id/start_calendar_btn"
@@ -53,17 +19,17 @@
             android:id="@+id/main_ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/header_text_rl"
+            android:layout_alignParentTop="true"
             android:layout_above="@id/start_calendar_btn"
             >
 
         <View
-                android:layout_weight=".1"
+                android:layout_weight=".15"
                 android:layout_width="@dimen/null_dp"
                 android:layout_height="match_parent"
                 />
         <RelativeLayout
-                android:layout_weight=".8"
+                android:layout_weight=".7"
                 android:layout_width="@dimen/null_dp"
                 android:layout_height="match_parent"
                 >
@@ -256,19 +222,23 @@
                         android:button="@drawable/black_radio_btn"
                         />
             </RadioGroup>
-
-            <View
-                    android:layout_alignLeft="@+id/choose_language_radiogroup"
-                    android:layout_alignRight="@+id/choose_language_radiogroup"
-                    android:layout_below="@+id/choose_language_radiogroup"
+            <RelativeLayout
+                android:id="@+id/main_activity_addition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/choose_language_radiogroup"
+                android:layout_alignLeft="@+id/choose_language_radiogroup"
+                android:layout_alignRight="@+id/choose_language_radiogroup"
+                >
+                <View
                     android:layout_marginTop="5dp"
                     android:background="@color/borderColor"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:id="@+id/separator3"
                     />
 
-            <TextView
+                <TextView
                     android:id="@+id/change_settings_textview"
                     android:layout_width="wrap_content"
                     android:textSize="@dimen/text_size"
@@ -279,19 +249,19 @@
                     android:layout_marginTop="4dp"
                     android:textColor="@color/white"
                     >
-            </TextView>
-            <ImageView
+                </TextView>
+                <ImageView
                     android:layout_height="20dp"
                     android:layout_width="20dp"
                     android:layout_marginTop="4dp"
                     android:background="@color/Transparent"
-                    android:src="@drawable/calendar_image"
+                    android:src="@drawable/fucking_calendar_button"
                     android:layout_below="@+id/change_settings_textview"
-                    android:layout_toLeftOf="@+id/anchor"
+                    android:layout_centerHorizontal="true"
                     android:id="@+id/settings_btn"
                     android:layout_above="@+id/start_calendar"
                     />
-            <TextView
+                <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textColor="@color/white"
@@ -299,13 +269,13 @@
                     android:text="@string/settings"
                     android:textSize="@dimen/text_size"
                     android:layout_toRightOf="@+id/settings_btn"
-                   android:layout_alignBottom="@+id/settings_btn"
+                    android:layout_alignBottom="@+id/settings_btn"
                     android:layout_marginTop="10dp"
                     />
-
+                </RelativeLayout>
         </RelativeLayout>
         <View
-                android:layout_weight=".1"
+                android:layout_weight=".15"
                 android:layout_width="@dimen/null_dp"
                 android:layout_height="match_parent"
                 />

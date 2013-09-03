@@ -12,7 +12,7 @@ import com.menst_verstka.utils.frameActivity;
 import com.menst_verstka.utils.navigate;
 
 public class SymptomActivity extends frameActivity {
-
+/*
     symptomView sv;
     navigate nav;
     @Override
@@ -50,5 +50,5 @@ public class SymptomActivity extends frameActivity {
 
     }
 
-
+*/
 }

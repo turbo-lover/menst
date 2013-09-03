@@ -31,9 +31,9 @@ public class navigate extends LinearLayout {
     private void Initialize_Component() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.navigate, this); //TODO set layout, what you want, to inflate;
-
+/*
         left = findViewById(R.id.navigate_left_arrow);
         right = findViewById(R.id.navigate_right_arrow);
-        date = (TextView) findViewById(R.id.navigate_Date);
+        date = (TextView) findViewById(R.id.navigate_Date);*/
     }
 }

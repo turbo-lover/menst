@@ -18,20 +18,26 @@
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-               <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
-            </intent-filter>
-        </activity>
-
-        <activity
-                android:name=".activity.SymptomActivity"
-                android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SettingsActivity"
+            android:screenOrientation="landscape"
+            ></activity>
+
+        <activity android:name=".activity.DayParamActivity"
+            android:screenOrientation="landscape" ></activity>
+        <activity
+                android:name=".activity.SymptomActivity"
+                android:screenOrientation="landscape" >
+        </activity>
         <activity android:name=".activity.CalendarActivity"
                 android:screenOrientation="landscape"/>
+        <activity android:name=".activity.WeightActivity"
+            android:screenOrientation="landscape" />
+       <activity android:name=".activity.TemperatureActivity"
+           android:screenOrientation="landscape" />
+
     </application>
 
 </manifest>

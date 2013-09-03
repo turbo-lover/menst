@@ -4,12 +4,6 @@
     <string name="app_name">Menst_verstka</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="hello_caption_first">
-        Добро пожаловать в <b>«Календарь менструации - Sister»!</b>
-    </string>
-    <string name="hello_caption_second">
-        Для дальнейшей работы, пожалуйста, выполните первоначальную настройку.
-    </string>
     <string name="cycle_duration">Длительность цикла</string>
     <string name="start_calendar">Начать использовать календарь</string>
     <string name="choose_week_start">Выберите день начала недели:</string>
@@ -24,6 +18,23 @@
     <string name="russian">Русский</string>
     <string name="english">Английский</string>
     <string name="arabic">Арабский</string>
+    <string name="calendar_title">Календарь менструации - Sister</string>
+    <string name="main_header_text">  Добро пожаловать в <b>«Календарь менструации - Sister»!</b> \n Для дальнейшей работы, пожалуйста, выполните первоначальную настройку.</string>
+    <string name="save_settings">Сохранить настройки</string>
+    <string name="menstruation_start">Начало менструации</string>
+    <string name="menstruation_end">Конец менструации</string>
+    <string name="delete_param">Очистить параметр</string>
+    <string name="back_to_calendar">Вернутся в календарь</string>
+    <string name="symptoms">Симптомы</string>
+    <string name="namaz">Намаз</string>
+    <string name="abstinence">Пост</string>
+    <string name="notes">Заметки</string>
+    <string name="mood">Настроение</string>
+    <string name="temperature">ВМТ</string>
+    <string name="weight">Вес</string>
+    <string name="pill">Таблетка</string>
+    <string name="temperature_celsius">По Цельсию</string>
+    <string name="temperature_fahrenheit">По Фаренгейту</string>
     <!-- Вот такой вот массивчик для перевода приложения
         Используется
     -->
