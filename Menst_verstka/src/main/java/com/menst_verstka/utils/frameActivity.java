@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.menst_verstka.R;
 import com.menst_verstka.activity.SettingsActivity;
 
@@ -55,18 +57,10 @@ public class frameActivity extends Activity implements View.OnClickListener{
         nav_bar.setVisibility(View.GONE);
     }
 
-
-    /**
-     * Обязательно вызывать )
-     */
     protected void SetNavBar(String txt,int backImgRes,int fwdImgRes) {
-        SetNavBarText(txt);
+        nav_bar_text.setText(txt);
         nav_bar_back.setImageResource(backImgRes);
         nav_bar_fwd.setImageResource(fwdImgRes);
-    }
-
-    protected void SetNavBarText(String txt) {
-        nav_bar_text.setText(txt);
     }
 
     protected void HideHeaderSetting() {
@@ -78,23 +72,8 @@ public class frameActivity extends Activity implements View.OnClickListener{
     }
     @Override
     public void onClick(View view) {
-        final int id =view.getId();
-
-        switch (id) {
-            case R.id.header_setting_img :
-                startActivityForResult(new Intent(this,SettingsActivity.class),1);
-                break;
-            case R.id.nav_bar_back_btn  :
-                Backward();
-                break;
-            case R.id.nav_bar_fwd_btn  :
-                Forward();
-                break;
+        if(view.getId() == R.id.header_setting_img) {
+            startActivity(new Intent(this,SettingsActivity.class));
         }
-
     }
-
-    // жаль что нельзя сделать их абстрактными (
-     protected void Forward(){}
-     protected void Backward(){}
 }

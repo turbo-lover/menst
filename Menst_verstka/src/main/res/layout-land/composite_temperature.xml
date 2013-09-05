@@ -122,14 +122,14 @@
             android:layout_weight="1"
             android:layout_width="@dimen/null_dp"
             android:layout_height="wrap_content"
-            android:text="@string/delete_param"
+            android:text="@string/save"
             />
         <Button
             android:id="@+id/composite_temperature_back"
             android:layout_weight="1"
             android:layout_width="@dimen/null_dp"
             android:layout_height="wrap_content"
-            android:text="@string/back_to_calendar"
+            android:text="@string/close"
             />
     </LinearLayout>
 

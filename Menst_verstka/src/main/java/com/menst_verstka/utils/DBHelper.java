@@ -17,23 +17,15 @@ import com.google.gson.JsonParser;
  */
 public class DBHelper extends SQLiteOpenHelper {
     /* * * * * * * * * * * *  Tables * * * * * * * * * * * */
-    private static final String TABLE_CYCLE = "cycle";
     private static final String TABLE_PARAMS = "params";
-    /* * * *  * * * * * * * *  Columns of TABLE_CYCLE * * * * * * * * * * * */
-    //DATE FORMAT yyyy-MM-dd
-    private static final String CYCLE_START = "start";
-    private static final String CYCLE_END = "end";
     /* * * *  * * * * * * * *  Columns of TABLE_PARAMS * * * * * * * * * * * */
+    //DATE FORMAT yyyy-MM-dd
     private static final String DATE = "date";
     private static final String PARAMS = "params";
     /* * * * * * * * * * * *  FIELDS OF JSON OBJ * * * * * * * * * * * */
-
-
     private static final String DB_NAME = "menstruation";
     private static final int DB_VERSION = 1;
-    private static final String CREATE_TABLE1 = "CREATE TABLE "+TABLE_CYCLE+" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + CYCLE_START+" TEXT NOT NULL, "+CYCLE_END+" TEXT NOT NULL);";
-    private static final String CREATE_TABLE2 = "CREATE TABLE "+ TABLE_PARAMS +
+    private static final String CREATE_TABLE = "CREATE TABLE "+ TABLE_PARAMS +
             " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +DATE+" TEXT NOT NULL, "+PARAMS+" TEXT);";
 
     public DBHelper(Context context) {
@@ -43,8 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(CREATE_TABLE1);
-        sqLiteDatabase.execSQL(CREATE_TABLE2);
+        sqLiteDatabase.execSQL(CREATE_TABLE);
     }
 
     @Override

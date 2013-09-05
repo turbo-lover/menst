@@ -53,7 +53,7 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
 
     private void Initialize_Component() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.number_picker, this);
+        inflater.inflate(R.layout.number_picker, this); //TODO set layout, what you want, to inflate;
         value = (TextView) findViewById(R.id.number_picker_value);
         try {
             setValue(MAX_VALUE);
@@ -123,6 +123,14 @@ public class Number_picker extends LinearLayout  implements View.OnClickListener
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String DetermineFormat(double d) {
+        return ((int)d == d)?"%.0f":"%.1f";
+    }
+
+    public void SetFormat(String format) {
+        this.format = format;
     }
 
     public double getValue() {

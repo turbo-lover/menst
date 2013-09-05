@@ -2,26 +2,25 @@ package com.menst_verstka.composite;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.menst_verstka.R;
-import com.menst_verstka.utils.AutoResizeTextView;
 
 /**
  * Created by turbo_lover on 21.08.13.
  */
-public class symptomElement extends LinearLayout implements View.OnClickListener{
+public class symptomElement extends LinearLayout implements View.OnClickListener {
     /* Элемент который загружаем в таблицу симптомов */
     private ImageView image;
     ImageView [] circles;
     private ImageView circle1;
     private ImageView circle2;
     private ImageView circle3;
-    private AutoResizeTextView text;
+    private TextView text;
     private int currentValue = 0;
 
     public symptomElement(Context context, AttributeSet attrs) {
@@ -48,32 +47,25 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
         li.inflate(R.layout.symptom_element,this);
 
         image = (ImageView) findViewById(R.id.elementImage);
-        text = (AutoResizeTextView) findViewById(R.id.elementText);
+        text = (TextView) findViewById(R.id.elementText);
 
         circle1 =(ImageView)this.findViewById(R.id.red_circles_1);
         circle2 =(ImageView)this.findViewById(R.id.red_circles_2);
         circle3 =(ImageView)this.findViewById(R.id.red_circles_3);
         circles = new ImageView[]{circle1,circle2,circle3};
     }
-    /* setters getters starts here*/
+    /* setters starts here*/
+    public void setCurrentValue(int currentValue) {
+        this.currentValue = currentValue;
+        //i must set this value in graphical representation
+        setCircles(currentValue);
+    }
     public void setText(CharSequence text) {
         this.text.setText(text);
     }
 
-
-    public void setCurrentValue(int currentValue) {
-        this.currentValue =  currentValue;
-
-        //i must set this value in graphical representation
-        setCircles( currentValue);
-    }
-
-    public void setImage(Drawable draw) {
-        image.setImageDrawable(draw);
-    }
-
-    public int getCurrentValue() {
-        return currentValue;
+    public void setImage(int id) {
+        image.setImageResource(id);
     }
     /* setters ends*/
 
@@ -107,6 +99,4 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
                 circles[i].setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.symptom_red_circle_checked));
 
     }
-
-
 }

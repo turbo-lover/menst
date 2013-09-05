@@ -42,10 +42,6 @@ public class compositeWeight extends LinearLayout implements RadioGroup.OnChecke
     }
 
     protected void SetCompositeElements() {
-        left2.setVisibility(INVISIBLE);
-        right2.setVisibility(INVISIBLE);
-        left1.setText("+1");
-        right1.setText("-1");
         number_picker.setValue(30);
         rl.addView(number_picker);
     }

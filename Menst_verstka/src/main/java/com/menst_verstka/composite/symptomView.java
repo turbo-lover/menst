@@ -1,23 +1,18 @@
 package com.menst_verstka.composite;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.menst_verstka.R;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.menst_verstka.R;
 
 /**
  * Created by turbo_lover on 22.08.13.
  */
 public class symptomView extends LinearLayout {
 
-    List<symptomElement> symptom_elemets;
-    List<Integer> symptoms_value;
     LinearLayout container;
     public symptomView(Context context) {
         super(context);
@@ -26,65 +21,33 @@ public class symptomView extends LinearLayout {
         li.inflate(R.layout.symptom_view,this);
 
         container = (LinearLayout) findViewById(R.id.symptom_view_container);
-        symptom_elemets = new ArrayList<symptomElement>();
-        symptoms_value = new ArrayList<Integer>();
 
         setSympomElements();
     }
 
-    public List<Integer> getSymptoms_value() {
-
-        //получаем последнее соостояние
-        element_to_value();
-        //and returning this state
-        return symptoms_value;
-    }
-
-    public void setSymptoms_value(List<Integer> value) {
-        //write incoming value to elemets? thats changed state
-        value_to_elements(value);
-
-        symptoms_value = value;
-    }
-
-    private void value_to_elements(List<Integer> value) {
-        int i =0;
-        for(symptomElement se:symptom_elemets){
-            se.setCurrentValue(value.get(i));
-            i++;
-        }
-    }
-
-    private void element_to_value() {
-        for(symptomElement se:symptom_elemets){
-            symptoms_value.add(se.getCurrentValue());
-        }
-    }
-
-
-
     //maybe you should reorganize this shit
     private void setSympomElements() {
-        Resources resources = getResources();
-        TypedArray images_array = resources.obtainTypedArray(R.array.symptoms_icon);
-        int width = resources.getDimensionPixelSize(R.dimen.including_width_symptom_element);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,0);
+        TypedArray images_array = getResources().obtainTypedArray(R.array.symptoms_icon);
+        int width =0;// getResources().getDimensionPixelSize(R.dimen.including_symptom_element);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,0);
         lp.weight =1;
         for(int i = 0, c =0;i<container.getChildCount();i++)
         {
             LinearLayout column = (LinearLayout) container.getChildAt(i);
             for(int j=0; j< 5; j++, c++)
             {
+                TypedValue typedValue = images_array.peekValue(c);
+                int resourceId = typedValue.resourceId;
+
                 symptomElement s = new symptomElement(getContext());
 
-                s.setCurrentValue(0); //TODO add features that analyze incoming intent;
-                s.setText(resources.getTextArray(R.array.symptoms_text)[c]);
+                s.setCurrentValue(1);
+                s.setText(getResources().getTextArray(R.array.symptoms_text)[c]);
                 s.setLayoutParams(lp);
-                s.setImage(images_array.getDrawable(c));
+                s.setImage(resourceId);
 
                 if (column != null) {
                     column.addView(s);
-                    symptom_elemets.add(s);
                 }
             }
         }

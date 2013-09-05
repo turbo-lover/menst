@@ -2,38 +2,25 @@ package com.menst_verstka.activity;/**
  * Created by turbo_lover on 22.08.13.
  */
 
-import android.app.AlertDialog;
-import com.menst_verstka.R;
+import android.os.Bundle;
 import com.menst_verstka.composite.symptomView;
 import com.menst_verstka.utils.frameActivity;
 
 public class SymptomActivity extends frameActivity {
 
-    private symptomView sView;
+    symptomView sv;
     @Override
-    protected void InitializeComponent() {
-        super.InitializeComponent();
-        sView  = new symptomView(this);
-    }
-
-    @Override
-    protected void SetCompositeElements() {
-        SetNavBar("Some day",R.drawable.arrow_left,R.drawable.arrow_right);
-        SetHeaderText(getString(R.string.calendar_title));
-        content.addView(sView);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Initialize_Component();
+        SetEventListeners();
     }
 
 
-
-    @Override
-    protected void Forward() {
-        AlertDialog.Builder b = new AlertDialog.Builder(this);
-        b.setMessage("forward").show();
+    private void Initialize_Component() {
+        sv = new symptomView(this);
+      //  setContainer(sv);
     }
 
-    @Override
-    protected void Backward() {
-        AlertDialog.Builder b = new AlertDialog.Builder(this);
-        b.setMessage("backward").show();
-    }
+
 }

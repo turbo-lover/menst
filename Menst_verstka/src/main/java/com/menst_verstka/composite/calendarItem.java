@@ -45,8 +45,11 @@ public class calendarItem extends RelativeLayout {
         abstinence = (TextView) findViewById(R.id.calendar_item_abstinence);
     }
 
+    public JsonObject getJsonObject() {
+        return jsonObject;
+    }
     public void setElement(Calendar calendar,JsonObject jsonObject) {
-        this.calendar = calendar;
+        this.calendar = (Calendar) calendar.clone();
         this.jsonObject = jsonObject;
         this.date.setText(Integer.toString(this.calendar.get(Calendar.DAY_OF_MONTH)));
         /*

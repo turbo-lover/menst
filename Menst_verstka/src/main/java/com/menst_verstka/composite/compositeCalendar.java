@@ -89,13 +89,17 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
     }
 
     private void GoToMonth(boolean direction) {
-        month m = (month) months.getChildAt((direction)?0:months.getChildCount() - 1);
+        month m = (month) months.getChildAt((direction)?months.getChildCount() - 1:0);
         Calendar c = m.GetCalendar();
+        c.set(Calendar.DAY_OF_MONTH,1);
         c.add(Calendar.MONTH,(direction)?1:-1);
-        months.removeView(m);
-        m = new month(pContext);
-        m.SetMonth(c);
-        months.addView(m,(direction)? months.getChildCount():0);
+        months.removeViewAt((direction)?0:months.getChildCount() - 1);
+        month new_month = new month(pContext);
+        new_month.SetMonth(c);
+        if(direction) {
+            months.addView(new_month);
+        } else {
+            months.addView(new_month,0); }
         SetLayoutParams();
     }
 }
