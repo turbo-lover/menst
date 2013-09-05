@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.menst_verstka.R;
 
@@ -67,7 +68,7 @@ public class symptomView extends LinearLayout {
         Resources resources = getResources();
         TypedArray images_array = resources.obtainTypedArray(R.array.symptoms_icon);
         int width = resources.getDimensionPixelSize(R.dimen.including_width_symptom_element);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,0);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,0);
         lp.weight =1;
         for(int i = 0, c =0;i<container.getChildCount();i++)
         {
@@ -76,7 +77,7 @@ public class symptomView extends LinearLayout {
             {
                 symptomElement s = new symptomElement(getContext());
 
-                s.setCurrentValue(c);//TODO add features that analyze incoming intent;
+                s.setCurrentValue(0); //TODO add features that analyze incoming intent;
                 s.setText(resources.getTextArray(R.array.symptoms_text)[c]);
                 s.setLayoutParams(lp);
                 s.setImage(images_array.getDrawable(c));

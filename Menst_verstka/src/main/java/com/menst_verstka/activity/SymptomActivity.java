@@ -3,52 +3,37 @@ package com.menst_verstka.activity;/**
  */
 
 import android.app.AlertDialog;
-import android.os.Bundle;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.menst_verstka.R;
 import com.menst_verstka.composite.symptomView;
-import com.menst_verstka.utils.DBHelper;
 import com.menst_verstka.utils.frameActivity;
-import com.menst_verstka.utils.navigate;
 
 public class SymptomActivity extends frameActivity {
-/*
-    symptomView sv;
-    navigate nav;
+
+    private symptomView sView;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Initialize_Component();
-        SetEventListeners();
+    protected void InitializeComponent() {
+        super.InitializeComponent();
+        sView  = new symptomView(this);
     }
 
-    private void SetEventListeners() {
-
+    @Override
+    protected void SetCompositeElements() {
+        SetNavBar("Some day",R.drawable.arrow_left,R.drawable.arrow_right);
+        SetHeaderText(getString(R.string.calendar_title));
+        content.addView(sView);
     }
 
-    private void Initialize_Component() {
-        sv = new symptomView(this);
-        setContainer(sv);
-
-        Gson g = new Gson();
-
-        JsonObject jo  = new JsonObject() ;
-        jo.add("symptom",g.toJsonTree(sv.getSymptoms_value()));
 
 
-        AlertDialog.Builder ad = new AlertDialog.Builder(this);
-        ad.setMessage(jo.toString());
-
-        DBHelper db = new DBHelper(this);
-
-
-
-
-
-        ad.show();
-
-
+    @Override
+    protected void Forward() {
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setMessage("forward").show();
     }
 
-*/
+    @Override
+    protected void Backward() {
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setMessage("backward").show();
+    }
 }

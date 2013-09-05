@@ -23,13 +23,27 @@
         </activity>
         <activity android:name=".activity.SettingsActivity"
             android:screenOrientation="landscape"
-            ></activity>
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
+            </activity>
 
         <activity android:name=".activity.DayParamActivity"
-            android:screenOrientation="landscape" ></activity>
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
+            </activity>
         <activity
                 android:name=".activity.SymptomActivity"
                 android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
         </activity>
         <activity android:name=".activity.CalendarActivity"
                 android:screenOrientation="landscape"/>

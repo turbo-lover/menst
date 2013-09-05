@@ -35,6 +35,7 @@
     <string name="pill">Таблетка</string>
     <string name="temperature_celsius">По Цельсию</string>
     <string name="temperature_fahrenheit">По Фаренгейту</string>
+    <string name="save">Сохранить</string>
     <!-- Вот такой вот массивчик для перевода приложения
         Используется
     -->
