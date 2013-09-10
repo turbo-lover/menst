@@ -83,7 +83,7 @@ public class compositeWeight extends jsonCompositeElement implements RadioGroup.
     @Override
     public void Set(Calendar calendar,JsonObject jo) {
         super.Set(calendar,jo);
-        if(!jo.has(JSON_TAG)) {
+        if(jo == null || !jo.has(JSON_TAG)) {
             return;
         }
         try {
