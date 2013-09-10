@@ -13,6 +13,7 @@ import com.google.gson.JsonObject;
 import com.menst_verstka.R;
 import com.menst_verstka.activity.SettingsActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -26,6 +27,8 @@ public class frameActivity extends Activity implements View.OnClickListener{
     private ImageView header_setting_img,nav_bar_back,nav_bar_fwd;
 
     protected myPreferencesWorker preferencesWorker;
+    protected DBHelper db_helper;
+    protected SimpleDateFormat save_dateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class frameActivity extends Activity implements View.OnClickListener{
 
     protected void InitializeComponent() {
         preferencesWorker = new myPreferencesWorker(this);
+        db_helper = new DBHelper(this);
+        save_dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         setContentView(R.layout.frame_activity);
         header = (RelativeLayout) findViewById(R.id.header);
         nav_bar = (RelativeLayout) findViewById(R.id.nav_bar);
@@ -58,6 +63,17 @@ public class frameActivity extends Activity implements View.OnClickListener{
 
     protected void HideNavBar() {
         nav_bar.setVisibility(View.GONE);
+    }
+
+    public Bundle GenerateExtras(Calendar calendar,JsonObject jo) {
+        Bundle b = new Bundle();
+        b.putInt("year",calendar.get(Calendar.YEAR));
+        b.putInt("compositeMonth",calendar.get(Calendar.MONTH));
+        b.putInt("day",calendar.get(Calendar.DAY_OF_MONTH));
+        if(jo != null) {
+            b.putString("json",jo.toString());
+        }
+        return b;
     }
 
     /**

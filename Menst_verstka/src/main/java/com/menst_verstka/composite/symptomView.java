@@ -1,18 +1,21 @@
 package com.menst_verstka.composite;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
-
 import com.menst_verstka.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by turbo_lover on 22.08.13.
  */
 public class symptomView extends LinearLayout {
 
+    List<symptomElement> symptoms;
     LinearLayout container;
     public symptomView(Context context) {
         super(context);
@@ -21,14 +24,20 @@ public class symptomView extends LinearLayout {
         li.inflate(R.layout.symptom_view,this);
 
         container = (LinearLayout) findViewById(R.id.symptom_view_container);
+        symptoms = new ArrayList<symptomElement>();
 
         setSympomElements();
     }
 
+    public List<symptomElement> getSymptoms() {
+        return symptoms;
+    }
+
     //maybe you should reorganize this shit
     private void setSympomElements() {
-        TypedArray images_array = getResources().obtainTypedArray(R.array.symptoms_icon);
-        int width =0;// getResources().getDimensionPixelSize(R.dimen.including_symptom_element);
+        Resources resources = getResources();
+        TypedArray images_array = resources.obtainTypedArray(R.array.symptoms_icon);
+        int width = resources.getDimensionPixelSize(R.dimen.including_width_symptom_element);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,0);
         lp.weight =1;
         for(int i = 0, c =0;i<container.getChildCount();i++)
@@ -36,18 +45,16 @@ public class symptomView extends LinearLayout {
             LinearLayout column = (LinearLayout) container.getChildAt(i);
             for(int j=0; j< 5; j++, c++)
             {
-                TypedValue typedValue = images_array.peekValue(c);
-                int resourceId = typedValue.resourceId;
-
                 symptomElement s = new symptomElement(getContext());
 
                 s.setCurrentValue(1);
-                s.setText(getResources().getTextArray(R.array.symptoms_text)[c]);
+                s.setText(resources.getTextArray(R.array.symptoms_text)[c]);
                 s.setLayoutParams(lp);
-                s.setImage(resourceId);
+                s.setImage(images_array.getDrawable(c));
 
                 if (column != null) {
                     column.addView(s);
+                    symptoms.add(s);
                 }
             }
         }

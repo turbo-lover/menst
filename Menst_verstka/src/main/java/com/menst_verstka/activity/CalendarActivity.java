@@ -3,26 +3,18 @@ package com.menst_verstka.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
+import com.google.gson.JsonParser;
 import com.menst_verstka.R;
 import com.menst_verstka.composite.compositeCalendar;
-import com.menst_verstka.composite.compositeSettings;
-import com.menst_verstka.composite.month;
 import com.menst_verstka.utils.frameActivity;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Alexander on 27.08.13.
  */
-public class CalendarActivity extends frameActivity implements View.OnClickListener {
+public class CalendarActivity extends frameActivity {
     private compositeCalendar cmpCalendar;
 
     @Override
@@ -39,6 +31,9 @@ public class CalendarActivity extends frameActivity implements View.OnClickListe
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        
+        if(resultCode == RESULT_OK) {
+            setResult(Activity.RESULT_OK,data);
+            finish();
+        }
     }
 }

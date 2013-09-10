@@ -20,8 +20,8 @@ public class jsonframeActivity extends frameActivity {
 
     protected Calendar calendar;
     protected JsonObject jo;
-    protected DBHelper db_helper;
-    protected SimpleDateFormat nav_bar_dateFormat,save_dateFormat;
+
+    protected SimpleDateFormat nav_bar_dateFormat;
     protected DateFormatSymbols dateFormatSymbols;
 
     @Override
@@ -30,14 +30,12 @@ public class jsonframeActivity extends frameActivity {
         dateFormatSymbols = new DateFormatSymbols();
         dateFormatSymbols.setMonths(getResources().getStringArray(R.array.months));
         nav_bar_dateFormat = new SimpleDateFormat("dd MMMM yyyy",dateFormatSymbols);
-        save_dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        db_helper = new DBHelper(this);
         Intent i = getIntent();
         Bundle b = i.getExtras();
         if(b != null) {
             if(!b.isEmpty()){
                 if(b.containsKey("year")) {
-                    calendar = new GregorianCalendar(b.getInt("year"),b.getInt("month"),b.getInt("day"));
+                    calendar = new GregorianCalendar(b.getInt("year"),b.getInt("compositeMonth"),b.getInt("day"));
                 } else {
                     calendar = Calendar.getInstance();
                 }
@@ -46,17 +44,6 @@ public class jsonframeActivity extends frameActivity {
                 }
             }
         }
-    }
-
-    protected Bundle GenerateExtras() {
-        Bundle b = new Bundle();
-        b.putInt("year",calendar.get(Calendar.YEAR));
-        b.putInt("month",calendar.get(Calendar.MONTH));
-        b.putInt("day",calendar.get(Calendar.DAY_OF_MONTH));
-        if(jo != null) {
-            b.putString("json",jo.toString());
-        }
-        return b;
     }
 
     @Override
@@ -76,10 +63,14 @@ public class jsonframeActivity extends frameActivity {
     protected void Forward(){
         calendar.add(Calendar.DAY_OF_MONTH,1);
         jo = db_helper.getRawJsonByDate(save_dateFormat.format(calendar.getTime()));
+        InitJsonComposite();
     }
 
     protected void Backward(){
         calendar.add(Calendar.DAY_OF_MONTH,-1);
         jo = db_helper.getRawJsonByDate(save_dateFormat.format(calendar.getTime()));
+        InitJsonComposite();
     }
+
+    protected void InitJsonComposite() {}
 }

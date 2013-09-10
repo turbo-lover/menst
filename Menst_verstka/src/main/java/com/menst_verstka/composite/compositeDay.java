@@ -13,26 +13,24 @@ import android.widget.TextView;
 import com.google.gson.JsonObject;
 import com.menst_verstka.R;
 import com.menst_verstka.activity.DayParamActivity;
+import com.menst_verstka.utils.jsonCompositeElement;
 
 import java.util.Calendar;
 
 /**
  * Created by Alexander on 28.08.13.
  */
-public class calendarItem extends RelativeLayout {
-
+public class compositeDay extends jsonCompositeElement {
     private TextView date,temperature_txt,abstinence, weight;
     private ImageView symptom,mood,temperature_img,pill;
 
-    private JsonObject jsonObject;
-    private Calendar calendar;
-
-    public calendarItem(Context context) {
+    public compositeDay(Context context) {
         super(context);
-        InitializeComponent(context);
     }
 
-    private void InitializeComponent(Context pContext) {
+    @Override
+    protected void InitializeComponent(Context pContext) {
+        super.InitializeComponent(pContext);
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.calendar_item, this);
         date = (TextView) findViewById(R.id.calendar_item_date);
@@ -44,13 +42,9 @@ public class calendarItem extends RelativeLayout {
         pill = (ImageView) findViewById(R.id.calendar_item_pill_image);
         abstinence = (TextView) findViewById(R.id.calendar_item_abstinence);
     }
-
-    public JsonObject getJsonObject() {
-        return jsonObject;
-    }
-    public void setElement(Calendar calendar,JsonObject jsonObject) {
-        this.calendar = (Calendar) calendar.clone();
-        this.jsonObject = jsonObject;
+    @Override
+    public void Set(Calendar calendar,JsonObject jsonObject) {
+        super.Set(calendar,jsonObject);
         this.date.setText(Integer.toString(this.calendar.get(Calendar.DAY_OF_MONTH)));
         /*
         this.symptom.setImageResource(symptom);
@@ -62,4 +56,5 @@ public class calendarItem extends RelativeLayout {
         this.pill.setImageResource(pill);
         */
     }
+
 }

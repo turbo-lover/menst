@@ -4,11 +4,12 @@ import com.menst_verstka.R;
 import com.menst_verstka.composite.compositeSettings;
 import com.menst_verstka.composite.compositeWeight;
 import com.menst_verstka.utils.frameActivity;
+import com.menst_verstka.utils.jsonframeActivity;
 
 /**
  * Created by Alexander on 03.09.13.
  */
-public class WeightActivity extends frameActivity {
+public class WeightActivity extends jsonframeActivity {
     protected compositeWeight cmpWeight;
 
     @Override
@@ -19,8 +20,9 @@ public class WeightActivity extends frameActivity {
 
     @Override
     protected void SetCompositeElements() {
-        SetNavBar("Some day",R.drawable.arrow_left,R.drawable.arrow_right);
+        SetNavBar(nav_bar_dateFormat.format(calendar.getTime()),R.drawable.arrow_left,R.drawable.arrow_right);
         SetHeaderText(getString(R.string.settings));
+        cmpWeight.Set(calendar,jo);
         content.addView(cmpWeight);
     }
 }

@@ -16,6 +16,7 @@ import com.menst_verstka.R;
 import com.menst_verstka.activity.DayParamActivity;
 import com.menst_verstka.activity.TemperatureActivity;
 import com.menst_verstka.activity.WeightActivity;
+import com.menst_verstka.utils.jsonCompositeElement;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -25,23 +26,17 @@ import java.util.GregorianCalendar;
 /**
  * Created by Alexander on 30.08.13.
  */
-public class compositeDayParams extends RelativeLayout implements View.OnClickListener {
+public class compositeDayParams extends jsonCompositeElement implements View.OnClickListener {
     private Button menstruation_start,menstruation_end,clear_params,go_back;
-    private Activity pActivity;
     private LinearLayout weight,temperature;
-
-    private JsonObject jsonObject;
-    private Calendar calendar;
     private SimpleDateFormat date_format;
 
-
-    public compositeDayParams(Context context,JsonObject jo) {
+    public compositeDayParams(Context context) {
         super(context);
-        InitializeComponent(context,jo);
-        SetEventListeners();
     }
 
-    private void SetEventListeners() {
+    @Override
+    protected void SetEventListeners() {
         menstruation_start.setOnClickListener(this);
         menstruation_end.setOnClickListener(this);
         clear_params.setOnClickListener(this);
@@ -49,11 +44,11 @@ public class compositeDayParams extends RelativeLayout implements View.OnClickLi
         weight.setOnClickListener(this);
         temperature.setOnClickListener(this);
     }
-
-    private void InitializeComponent(Context pContext,JsonObject jo) {
+    @Override
+    protected void InitializeComponent(Context pContext) {
+        super.InitializeComponent(pContext);
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.composite_day_params, this);
-        pActivity = (Activity)pContext;
         menstruation_start = (Button) findViewById(R.id.menstruation_start);
         menstruation_end = (Button) findViewById(R.id.menstruation_end);
         clear_params = (Button) findViewById(R.id.delete_param);
@@ -61,9 +56,10 @@ public class compositeDayParams extends RelativeLayout implements View.OnClickLi
         weight = (LinearLayout) findViewById(R.id.composite_day_params_weight);
         temperature = (LinearLayout) findViewById(R.id.composite_day_params_temperature);
     }
-
-    public void Set(JsonObject jo) {
-
+    @Override
+    public void Set(Calendar calendar,JsonObject jo) {
+        super.Set(calendar,jo);
+        //SOME ACTION
     }
 
     @Override
@@ -78,7 +74,10 @@ public class compositeDayParams extends RelativeLayout implements View.OnClickLi
                 BuildDialog();
                 break;
             case R.id.composite_day_params_weight:
-                 pActivity.startActivityForResult(new Intent(pActivity, WeightActivity.class), 1);
+                Intent i = new Intent(pActivity, WeightActivity.class);
+            //    i.putExtra();
+
+                 pActivity.startActivityForResult(i, 1);
                 break;
             case R.id.composite_day_params_temperature:
                  pActivity.startActivityForResult(new Intent(pActivity, TemperatureActivity.class), 1);

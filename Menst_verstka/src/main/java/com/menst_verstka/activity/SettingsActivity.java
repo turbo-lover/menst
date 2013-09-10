@@ -9,6 +9,7 @@ import com.menst_verstka.utils.frameActivity;
  */
 public class SettingsActivity extends frameActivity {
     protected compositeSettings cmpSetting;
+
     @Override
     protected void InitializeComponent() {
         super.InitializeComponent();

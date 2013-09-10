@@ -28,18 +28,19 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         SetCompositeElements();
         SetEventListeners();
     }
+
     private void SetMonths() {
         Calendar c  = Calendar.getInstance();
         c.set(Calendar.DAY_OF_MONTH,1);
-        month m1 = new month(pContext);
-        month m2 = new month(pContext);
-        month m3 = new month(pContext);
+        compositeMonth m1 = new compositeMonth(pContext);
+        compositeMonth m2 = new compositeMonth(pContext);
+        compositeMonth m3 = new compositeMonth(pContext);
         c.add(Calendar.MONTH,-1);
-        m1.SetMonth(c);
+        m1.Set(c,null);
         c.add(Calendar.MONTH, 1);
-        m2.SetMonth(c);
+        m2.Set(c,null);
         c.add(Calendar.MONTH,1);
-        m3.SetMonth(c);
+        m3.Set(c,null);
         months.addView(m1);
         months.addView(m2);
         months.addView(m3);
@@ -51,9 +52,7 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         fwd.setOnClickListener(this);
     }
 
-    private void SetCompositeElements() {
-
-    }
+    private void SetCompositeElements() { }
 
     private void InitializeComponent(Context pContext) {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -89,17 +88,14 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
     }
 
     private void GoToMonth(boolean direction) {
-        month m = (month) months.getChildAt((direction)?months.getChildCount() - 1:0);
+        compositeMonth m = (compositeMonth) months.getChildAt((direction)?months.getChildCount() - 1:0);
         Calendar c = m.GetCalendar();
         c.set(Calendar.DAY_OF_MONTH,1);
         c.add(Calendar.MONTH,(direction)?1:-1);
-        months.removeViewAt((direction)?0:months.getChildCount() - 1);
-        month new_month = new month(pContext);
-        new_month.SetMonth(c);
-        if(direction) {
-            months.addView(new_month);
-        } else {
-            months.addView(new_month,0); }
+        m = (compositeMonth) months.getChildAt((direction)?0:months.getChildCount() - 1);
+        months.removeView(m);
+        m.Set(c,null);
+        months.addView(m,(direction)?months.getChildCount():0);
         SetLayoutParams();
     }
 }
