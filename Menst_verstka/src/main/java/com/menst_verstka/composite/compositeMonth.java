@@ -73,6 +73,13 @@ public class compositeMonth extends jsonCompositeElement implements View.OnClick
             month_parts[i].removeAllViews();
         }
     }
+
+    public void UpdateDay(Calendar calendar) {
+        int n = LANDSCAPE_CELLS_IN_ROW/calendar.get(Calendar.DAY_OF_MONTH);
+        compositeDay day = (compositeDay) month_parts[n].getChildAt(n - (LANDSCAPE_CELLS_IN_ROW*n));
+     //   day.Set(calendar,);
+
+    }
     @Override
     public void onClick(View view) {
         compositeDay c = (compositeDay) view;

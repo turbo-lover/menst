@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.menst_verstka.R;
 import com.menst_verstka.composite.compositeCalendar;
+import com.menst_verstka.composite.compositeMonth;
 import com.menst_verstka.utils.frameActivity;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -32,8 +35,11 @@ public class CalendarActivity extends frameActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == RESULT_OK) {
-            setResult(Activity.RESULT_OK,data);
-            finish();
+            Bundle extras = data.getExtras();
+            Calendar calendar = new GregorianCalendar(extras.getInt("year"),extras.getInt("month"),extras.getInt("day"));
+            JsonObject jo = new JsonParser().parse(data.getStringExtra("json")).getAsJsonObject();
+            db_helper.SetJsonByDate(save_dateFormat.format(calendar.getTime()),jo);
+            compositeCalendar.UpdateDay(calendar,jo);
         }
     }
 }

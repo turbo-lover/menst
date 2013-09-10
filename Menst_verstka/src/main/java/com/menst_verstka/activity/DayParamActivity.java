@@ -1,5 +1,6 @@
 package com.menst_verstka.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -42,8 +43,8 @@ public class DayParamActivity extends jsonframeActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            db_helper.SetJsonByDate(save_dateFormat.format(new GregorianCalendar(extras.getInt("year"),extras.getInt("month"),extras.getInt("day")).getTime()),new JsonParser().parse(data.getStringExtra("json")).getAsJsonObject());
+            setResult(Activity.RESULT_OK,data);
+            finish();
         }
     }
 }

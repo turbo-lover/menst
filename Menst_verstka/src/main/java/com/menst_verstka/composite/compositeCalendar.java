@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.google.gson.JsonObject;
 import com.menst_verstka.R;
 import com.menst_verstka.utils.Transforms;
 
@@ -68,6 +69,7 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
     }
 
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -97,5 +99,9 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         m.Set(c,null);
         months.addView(m,(direction)?months.getChildCount():0);
         SetLayoutParams();
+    }
+
+    public static void UpdateDay(Calendar calendar, JsonObject jo) {
+        //find month and call him to updateday
     }
 }
