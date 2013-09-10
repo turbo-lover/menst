@@ -66,7 +66,6 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back_to_calendar:
-          //      Intent i = new   SET DATA TO PASS ONACTIVITYRESLUT
                  pActivity.setResult(Activity.RESULT_CANCELED);
                  pActivity.finish();
                 break;
@@ -75,12 +74,13 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
                 break;
             case R.id.composite_day_params_weight:
                 Intent i = new Intent(pActivity, WeightActivity.class);
-            //    i.putExtra();
-
-                 pActivity.startActivityForResult(i, 1);
+                i.putExtras(pActivity.GenerateExtras(calendar,jo));
+                pActivity.startActivityForResult(i, 1);
                 break;
             case R.id.composite_day_params_temperature:
-                 pActivity.startActivityForResult(new Intent(pActivity, TemperatureActivity.class), 1);
+                Intent intent = new Intent(pActivity, TemperatureActivity.class);
+                intent.putExtras(pActivity.GenerateExtras(calendar,jo));
+                pActivity.startActivityForResult(intent, 1);
             break;
         }
     }
