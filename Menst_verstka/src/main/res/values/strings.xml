@@ -63,6 +63,21 @@
        <item>Либидо</item>
     </string-array>
 
+    <string-array name="mood">
+        <item>Радостная</item>
+        <item>Подавленная</item>
+        <item>Сонная</item>
+        <item>Угрюмая</item>
+        <item>Грустная</item>
+        <item>Раздражительная</item>
+        <item>Спокойная</item>
+        <item>Растерянная</item>
+        <item>Нейтральная</item>
+        <item>Сердитая</item>
+        <item>Счастливая</item>
+    </string-array>
+
+
     <string-array name="months">
         <item>Января</item>
         <item>Февраля</item>
