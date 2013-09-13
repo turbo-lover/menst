@@ -35,7 +35,7 @@ public class jsonframeActivity extends frameActivity {
         if(b != null) {
             if(!b.isEmpty()){
                 if(b.containsKey("year")) {
-                    calendar = new GregorianCalendar(b.getInt("year"),b.getInt("compositeMonth"),b.getInt("day"));
+                    calendar = new GregorianCalendar(b.getInt("year"),b.getInt("month"),b.getInt("day"));
                 } else {
                     calendar = Calendar.getInstance();
                 }

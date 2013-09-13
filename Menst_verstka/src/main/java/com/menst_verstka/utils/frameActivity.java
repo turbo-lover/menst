@@ -68,7 +68,7 @@ public class frameActivity extends Activity implements View.OnClickListener{
     public Bundle GenerateExtras(Calendar calendar,JsonObject jo) {
         Bundle b = new Bundle();
         b.putInt("year",calendar.get(Calendar.YEAR));
-        b.putInt("compositeMonth",calendar.get(Calendar.MONTH));
+        b.putInt("month",calendar.get(Calendar.MONTH));
         b.putInt("day",calendar.get(Calendar.DAY_OF_MONTH));
         if(jo != null) {
             b.putString("json",jo.toString());

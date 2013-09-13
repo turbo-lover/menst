@@ -47,6 +47,9 @@ public class compositeWeight extends jsonCompositeElement implements RadioGroup.
         save.setOnClickListener(this);
         left1.setOnClickListener(this);
         right1.setOnClickListener(this);
+        left2.setOnClickListener(this);
+        right2.setOnClickListener(this);
+
     }
     @Override
     protected void SetCompositeElements() {

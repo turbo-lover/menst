@@ -59,14 +59,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
             if (db != null) {
                 // select $PARAMS from table $TABLE_PARAMS where $DATE == $date
-                cursor = db.query(TABLE_PARAMS, new String[]{PARAMS}, DATE + "=?", new String[]{date}, null, null, null);
-
+            //    cursor = db.query(TABLE_PARAMS, new String[]{PARAMS}, DATE + "=?", new String[]{date}, null, null, null);
+                cursor = db.query(TABLE_PARAMS,null,null,null,null,null,null);
             }
             int columnIndex = cursor.getColumnIndex(PARAMS);
             String str = null;
             if(cursor.getCount() != 0 ) {
                 cursor.moveToFirst();
                 str = cursor.getString(columnIndex);
+                String str1 = cursor.getString(1);
                 return new JsonParser().parse(str).getAsJsonObject();
             }
         } catch (SQLiteException e) {
@@ -83,15 +84,10 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor  = null;
         try {
             db = getWritableDatabase();
-            cursor = db.query(TABLE_PARAMS,new String[]{PARAMS},DATE + "=?",new String[]{date},null,null,null);
             ContentValues cv = new ContentValues();
             cv.put(PARAMS,object.toString());
-            if(cursor != null) {
-                db.update(TABLE_PARAMS,cv,DATE + "=?",new String[]{date});
-            } else {
-                cv.put(DATE,date);
-                db.insert(TABLE_PARAMS,null,cv);
-            }
+            cv.put(DATE,date);
+            db.insert(TABLE_PARAMS,null,cv);
         } catch (SQLiteException e) {
             e.printStackTrace();
         } finally {

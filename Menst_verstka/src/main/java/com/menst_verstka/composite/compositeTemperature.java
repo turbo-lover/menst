@@ -15,18 +15,6 @@ public class compositeTemperature extends compositeWeight {
     }
 
     @Override
-    protected void SetCompositeElements() {
-        number_picker.setValue(30);
-        rl.addView(number_picker);
-    }
-    @Override
-    protected void SetEventListeners() {
-        super.SetEventListeners();
-        left2.setOnClickListener(this);
-        right2.setOnClickListener(this);
-    }
-
-    @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         if(i == R.id.composite_temperature_radio2) {
             number_picker.setValue((number_picker.getValue()*(9/5))+32);
