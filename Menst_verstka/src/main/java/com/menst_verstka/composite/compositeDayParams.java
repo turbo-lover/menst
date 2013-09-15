@@ -10,13 +10,16 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 import com.menst_verstka.R;
 import com.menst_verstka.activity.DayParamActivity;
 import com.menst_verstka.activity.TemperatureActivity;
 import com.menst_verstka.activity.WeightActivity;
 import com.menst_verstka.utils.jsonCompositeElement;
+import com.menst_verstka.utils.jsonStructure;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -28,7 +31,7 @@ import java.util.GregorianCalendar;
  */
 public class compositeDayParams extends jsonCompositeElement implements View.OnClickListener {
     private Button menstruation_start,menstruation_end,clear_params,go_back;
-    private LinearLayout weight,temperature;
+    private LinearLayout weight,temperature,pill;
     private SimpleDateFormat date_format;
 
     public compositeDayParams(Context context) {
@@ -43,6 +46,7 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
         go_back.setOnClickListener(this);
         weight.setOnClickListener(this);
         temperature.setOnClickListener(this);
+        pill.setOnClickListener(this);
     }
     @Override
     protected void InitializeComponent(Context pContext) {
@@ -55,6 +59,7 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
         go_back = (Button) findViewById(R.id.back_to_calendar);
         weight = (LinearLayout) findViewById(R.id.composite_day_params_weight);
         temperature = (LinearLayout) findViewById(R.id.composite_day_params_temperature);
+        pill = (LinearLayout) findViewById(R.id.composite_day_params_pill);
     }
     @Override
     public void Set(Calendar calendar,JsonObject jo) {
@@ -64,6 +69,7 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
 
     @Override
     public void onClick(View view) {
+        Intent i;
         switch (view.getId()) {
             case R.id.back_to_calendar:
                  pActivity.setResult(Activity.RESULT_CANCELED);
@@ -73,7 +79,7 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
                 BuildDialog();
                 break;
             case R.id.composite_day_params_weight:
-                Intent i = new Intent(pActivity, WeightActivity.class);
+                i = new Intent(pActivity, WeightActivity.class);
                 i.putExtras(pActivity.GenerateExtras(calendar,jo));
                 pActivity.startActivityForResult(i, 1);
                 break;
@@ -81,7 +87,25 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
                 Intent intent = new Intent(pActivity, TemperatureActivity.class);
                 intent.putExtras(pActivity.GenerateExtras(calendar,jo));
                 pActivity.startActivityForResult(intent, 1);
-            break;
+                break;
+            case R.id.composite_day_params_pill:
+                TogglePill();
+                i = new Intent();
+                i.putExtras(pActivity.GenerateExtras(calendar,jo));
+                pActivity.setResult(Activity.RESULT_OK,i);
+                pActivity.finish();
+                break;
+        }
+    }
+
+    private void TogglePill() {
+        String pill = jsonStructure.PILL.name();
+        if(jo == null) {
+            jo = new JsonObject(); }
+        if(jo.has(pill) && jo.get(pill).getAsInt() == 1) {
+            jo.remove(pill);
+        } else {
+            jo.addProperty(pill,1);
         }
     }
 

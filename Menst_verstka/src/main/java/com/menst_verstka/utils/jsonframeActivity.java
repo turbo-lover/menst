@@ -1,5 +1,6 @@
 package com.menst_verstka.utils;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,24 +13,26 @@ import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Created by Alexander on 09.09.13.
  */
 public class jsonframeActivity extends frameActivity {
-
     protected Calendar calendar;
     protected JsonObject jo;
 
     protected SimpleDateFormat nav_bar_dateFormat;
-    protected DateFormatSymbols dateFormatSymbols;
 
     @Override
     protected void InitializeComponent() {
         super.InitializeComponent();
-        dateFormatSymbols = new DateFormatSymbols();
-        dateFormatSymbols.setMonths(getResources().getStringArray(R.array.months));
-        nav_bar_dateFormat = new SimpleDateFormat("dd MMMM yyyy",dateFormatSymbols);
+        if(preferencesWorker.getLanguage() == "0") { // FOR RUSSIAN LANGUAGE
+            DateFormatSymbols dateFormatSymbols = new DateFormatSymbols();
+            dateFormatSymbols.setMonths(getResources().getStringArray(R.array.months));
+            nav_bar_dateFormat = new SimpleDateFormat("dd MMMM yyyy",dateFormatSymbols);
+        } else {
+            nav_bar_dateFormat = new SimpleDateFormat("dd MMMM yyyy"); }
         Intent i = getIntent();
         Bundle b = i.getExtras();
         if(b != null) {
@@ -64,6 +67,13 @@ public class jsonframeActivity extends frameActivity {
         calendar.add(Calendar.DAY_OF_MONTH,1);
         jo = db_helper.getRawJsonByDate(save_dateFormat.format(calendar.getTime()));
         InitJsonComposite();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK) {
+            setResult(Activity.RESULT_OK,data);
+            finish();
+        }
     }
 
     protected void Backward(){

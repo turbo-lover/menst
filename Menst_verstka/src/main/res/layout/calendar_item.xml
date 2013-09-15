@@ -1,68 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
+    android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/borderColor"
+    android:layout_marginRight="1dp"
     >
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="@dimen/null_dp"
         android:layout_height="match_parent"
-        android:background="@color/borderColor"
-        android:layout_marginRight="1dp">
+        >
         <TextView
-            android:textSize="@dimen/text_size_small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
+            android:textAlignment="gravity"
+            android:gravity="top|left"
+            android:textSize="@dimen/text_size_very_small"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"
             android:id="@+id/calendar_item_date"
             />
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"
             android:id="@+id/calendar_item_symptom_image"
-            android:layout_below="@+id/calendar_item_date"
-            android:layout_alignRight="@+id/calendar_item_date"
-            android:layout_alignParentLeft="true"
+
             />
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"
             android:id="@+id/calendar_item_mood_image"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/calendar_item_symptom_image"
-            android:layout_below="@+id/calendar_item_symptom_image"
+
             />
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_width="@dimen/null_dp"
+        >
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_very_small"
+            android:textAlignment="gravity"
+            android:gravity="top|center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"
             android:id="@+id/calendar_item_temperature_text"
-            android:layout_toRightOf="@+id/calendar_item_date"
-            android:layout_alignBottom="@+id/calendar_item_date"
             />
         <ImageView
             android:id="@+id/calendar_item_temperature_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/calendar_item_temperature_text"
-            android:layout_toRightOf="@+id/calendar_item_mood_image"/>
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"/>
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="@dimen/null_dp"
+        android:layout_height="match_parent"
+        >
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:textAlignment="gravity"
+            android:gravity="top|right"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_small"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"
             android:id="@+id/calendar_item_abstinence"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/calendar_item_abstinence"
-            android:layout_toLeftOf="@+id/calendar_item_temperature_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"
+            android:textAlignment="gravity"
+            android:gravity="center|top"
+            android:textSize="@dimen/text_size_very_small"
+            android:layout_weight="1"
             android:id="@+id/calendar_item_weight"/>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/null_dp"
+            android:layout_weight="1"
             android:id="@+id/calendar_item_pill_image"
-            android:layout_below="@+id/calendar_item_weight"
-            android:layout_toLeftOf="@+id/calendar_item_temperature_img" />
-    </RelativeLayout>
+            />
+
+        </LinearLayout>
 </LinearLayout>

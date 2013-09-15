@@ -86,7 +86,6 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         for (int i = 0;i < months.getChildCount();i++) {
             months.getChildAt(i).setLayoutParams((i == 0)?p:p_margin);
         }
-
     }
 
     private void GoToMonth(boolean direction) {
@@ -101,7 +100,18 @@ public class compositeCalendar extends RelativeLayout implements View.OnClickLis
         SetLayoutParams();
     }
 
-    public static void UpdateDay(Calendar calendar, JsonObject jo) {
-        //find month and call him to updateday
+    public void UpdateDay(Calendar calendar, JsonObject jo) {
+        for (int i = 0;i < months.getChildCount();i++) {
+           compositeMonth m = (compositeMonth) months.getChildAt(i);
+           if(m.GetCalendar().get(Calendar.MONTH) == calendar.get(Calendar.MONTH)) {
+               m.UpdateDay(calendar,jo);
+           }
+        }
+    }
+
+    public void UpdateText() {
+        for (int i = 0;i < months.getChildCount();i++) {
+            ((compositeMonth) months.getChildAt(i)).UpdateText();
+        }
     }
 }

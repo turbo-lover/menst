@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Menst_verstka</string>
-    <string name="cycle_duration">Длительность цикла</string>
+    <string name="app_name">Menstruation calendar</string>
     <string name="start_calendar">Начать использовать календарь</string>
     <string name="choose_week_start">Выберите день начала недели:</string>
     <string name="device_settings">Настройки устройства</string>
@@ -39,11 +38,13 @@
     <string name="close">Закрыть</string>
     <string name="reminder">Напоминание</string>
     <string name="event_time">Время события</string>
-    <string name="prayer">Намаз</string>
     <string name="reminer_is_not_set">Напоминание отсутсвует</string>
     <string name="ar_event_time">В момент события</string>
+    <string name="abstinence_short">П</string>
+    <string name="kilograms_short">кг</string>
+    <string name="pounds_short">ф</string>
 
-    <string-array name="prayer-type">
+    <string-array name="prayer_type">
         <item>Фаджр</item>
         <item>Зухр</item>
         <item>Аср</item>
@@ -87,9 +88,7 @@
         <item>Сердитая</item>
         <item>Счастливая</item>
     </string-array>
-    <!-- Используется для отображения даты с названием месяца в родительном падеже.
-
-    -->
+    <!-- Используется для отображения даты с названием месяца в родительном падеже.  -->
     <string-array name="months">
         <item>Января</item>
         <item>Февраля</item>
@@ -103,5 +102,20 @@
         <item>Октября</item>
         <item>Ноября</item>
         <item>Декабря</item>
+    </string-array>
+    <!-- Используется для отображения даты с названием месяца в родительном падеже.  -->
+    <string-array name="months_normal">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Маь</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
     </string-array>
 </resources>

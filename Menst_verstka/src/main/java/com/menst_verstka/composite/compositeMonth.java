@@ -12,8 +12,10 @@ import com.menst_verstka.R;
 import com.menst_verstka.activity.DayParamActivity;
 import com.menst_verstka.utils.DBHelper;
 import com.menst_verstka.utils.jsonCompositeElement;
+import com.menst_verstka.utils.myPreferencesWorker;
 import com.menst_verstka.utils.rotateTextView;
 
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -64,8 +66,7 @@ public class compositeMonth extends jsonCompositeElement implements View.OnClick
             month_parts[i/LANDSCAPE_CELLS_IN_ROW].addView(compositeDay,p);
         }
         this.calendar.add(Calendar.MONTH,-1);
-        this.month.setText(new SimpleDateFormat("MMMM").format(this.calendar.getTime()));
-        this.year.setText(new SimpleDateFormat("yyyy").format(this.calendar.getTime()));
+        UpdateText();
     }
 
     private void ClearDays() {
@@ -74,11 +75,11 @@ public class compositeMonth extends jsonCompositeElement implements View.OnClick
         }
     }
 
-    public void UpdateDay(Calendar calendar) {
-        int n = LANDSCAPE_CELLS_IN_ROW/calendar.get(Calendar.DAY_OF_MONTH);
-        compositeDay day = (compositeDay) month_parts[n].getChildAt(n - (LANDSCAPE_CELLS_IN_ROW*n));
-     //   day.Set(calendar,);
-
+    public void UpdateDay(Calendar calendar,JsonObject jo) {
+        int n = calendar.get(Calendar.DAY_OF_MONTH)/LANDSCAPE_CELLS_IN_ROW;
+        int t = calendar.get(Calendar.DAY_OF_MONTH) - (LANDSCAPE_CELLS_IN_ROW*n) - 1;
+        compositeDay day = (compositeDay) month_parts[n].getChildAt(t);
+        day.Set(calendar,jo);
     }
     @Override
     public void onClick(View view) {
@@ -86,5 +87,18 @@ public class compositeMonth extends jsonCompositeElement implements View.OnClick
         Intent i = new Intent(pActivity,DayParamActivity.class);
         i.putExtras(pActivity.GenerateExtras(c.GetCalendar(),c.GetJson()));
         pActivity.startActivityForResult(i,1);
+    }
+
+    public void UpdateText() {
+        myPreferencesWorker prefe = new myPreferencesWorker(pActivity);
+        SimpleDateFormat month_format;
+        if(prefe.getLanguage() == "0") {
+            DateFormatSymbols symbols = new DateFormatSymbols();
+            symbols.setMonths(pActivity.getResources().getStringArray(R.array.months_normal));
+            month_format = new SimpleDateFormat("MMMM",symbols);
+        } else {
+            month_format = new SimpleDateFormat("MMMM"); }
+        this.month.setText(month_format.format(this.calendar.getTime()).toUpperCase());
+        this.year.setText(new SimpleDateFormat("yyyy").format(this.calendar.getTime()).toUpperCase());
     }
 }

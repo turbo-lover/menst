@@ -21,6 +21,7 @@ import com.menst_verstka.R;
 import com.menst_verstka.activity.CalendarActivity;
 import com.menst_verstka.activity.DayParamActivity;
 import com.menst_verstka.utils.jsonCompositeElement;
+import com.menst_verstka.utils.jsonStructure;
 import com.menst_verstka.utils.jsonframeActivity;
 
 import java.util.Calendar;
@@ -33,9 +34,10 @@ public class compositeWeight extends jsonCompositeElement implements RadioGroup.
     protected Number_picker number_picker;
     protected final double MIN = 0,MAX = 200;
     private RadioGroup radioGroup;
-   // private RadioButton radioButton1,radioButton2;
+    protected RadioButton radioButton1,radioButton2;
     private Button save,back;
     protected TextView left1,left2,right1,right2;
+    protected TextView labelText;
 
     public compositeWeight(Context context) {
         super(context);
@@ -62,18 +64,22 @@ public class compositeWeight extends jsonCompositeElement implements RadioGroup.
         super.InitializeComponent(context);
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.composite_temperature, this);
-        JSON_TAG = "weight";
+        JSON_TAG = jsonStructure.WEIGHT.name();
         number_picker = new Number_picker(pActivity,1.0,MIN,MAX,"%.0f");
         rl = (RelativeLayout) findViewById(R.id.temp_number_picker_rl);
         radioGroup = (RadioGroup) findViewById(R.id.composite_temperature_radiogroup);
+        labelText = (TextView) findViewById(R.id.composite_temperature_text);
         save = (Button) findViewById(R.id.composite_temperature_save);
         back = (Button) findViewById(R.id.composite_temperature_back);
         left1 = (TextView) findViewById(R.id.composite_temperature_left1);
         left2 = (TextView) findViewById(R.id.composite_temperature_left2);
         right1 = (TextView) findViewById(R.id.composite_temperature_right1);
         right2 = (TextView) findViewById(R.id.composite_temperature_right2);
-       // radioButton1 = (RadioButton) findViewById(R.id.composite_temperature_radio1);
-       // radioButton2 = (RadioButton) findViewById(R.id.composite_temperature_radio2);
+        radioButton1 = (RadioButton) findViewById(R.id.composite_temperature_radio1);
+        radioButton2 = (RadioButton) findViewById(R.id.composite_temperature_radio2);
+        labelText.setText(pActivity.getString(R.string.weight));
+        radioButton1.setText(pActivity.getString(R.string.kilograms));
+        radioButton2.setText(pActivity.getString(R.string.pounds));
     }
 
 
@@ -109,14 +115,15 @@ public class compositeWeight extends jsonCompositeElement implements RadioGroup.
         array.add(new JsonPrimitive(number_picker.getValue()));
         if(jo == null) {
             jo = new JsonObject(); }
-        jo.add("weight",array);
+        jo.add(JSON_TAG,array);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.composite_temperature_back:
-
+                pActivity.setResult(Activity.RESULT_CANCELED);
+                pActivity.finish();
                 break;
             case R.id.composite_temperature_save:
                 ModifyJson();

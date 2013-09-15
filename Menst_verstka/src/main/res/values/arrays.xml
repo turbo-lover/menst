@@ -22,4 +22,17 @@
         <item>@drawable/bleeding</item>
         <item>@drawable/libido</item>
     </array>
+    <array name="mood_icon">
+        <item>@drawable/mood_pleasant</item>
+        <item>@drawable/mood_faint</item>
+        <item>@drawable/mood_asleep</item>
+        <item>@drawable/mood_despise</item>
+        <item>@drawable/mood_sad</item>
+        <item>@drawable/mood_strive</item>
+        <item>@drawable/mood_calm</item>
+        <item>@drawable/mood_puzzled</item>
+        <item>@drawable/mood_neutral</item>
+        <item>@drawable/mood_rage</item>
+        <item>@drawable/mood_happy</item>
+    </array>
 </resources>

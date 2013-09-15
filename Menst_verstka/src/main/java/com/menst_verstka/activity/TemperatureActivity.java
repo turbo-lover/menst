@@ -1,11 +1,6 @@
 package com.menst_verstka.activity;
 
-import android.widget.RadioGroup;
-
-import com.menst_verstka.R;
 import com.menst_verstka.composite.compositeTemperature;
-import com.menst_verstka.composite.compositeWeight;
-import com.menst_verstka.utils.frameActivity;
 
 /**
  * Created by Alexander on 03.09.13.

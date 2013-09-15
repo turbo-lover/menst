@@ -1,19 +1,15 @@
 package com.menst_verstka.composite;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.menst_verstka.R;
-import com.menst_verstka.activity.DayParamActivity;
 import com.menst_verstka.utils.jsonCompositeElement;
+import com.menst_verstka.utils.jsonStructure;
 
 import java.util.Calendar;
 
@@ -46,15 +42,30 @@ public class compositeDay extends jsonCompositeElement {
     public void Set(Calendar calendar,JsonObject jsonObject) {
         super.Set(calendar,jsonObject);
         this.date.setText(Integer.toString(this.calendar.get(Calendar.DAY_OF_MONTH)));
-        /*
-        this.symptom.setImageResource(symptom);
-        this.mood.setImageResource(mood);
-        this.temperature_txt.setText(temperature_txt);
-        this.temperature_img.setImageResource(temperature_img);
-        this.abstinence.setText(abstinence);
-        this.weight.setText(weight);
-        this.pill.setImageResource(pill);
-        */
+        if(jo != null) {
+            if(jo.has(jsonStructure.PILL.name()) && jo.get(jsonStructure.PILL.name()).getAsInt() == 1) {
+                pill.setImageResource(R.drawable.pill);
+            }
+            if(jo.has(jsonStructure.WEIGHT.name())) {
+                JsonArray array = jo.get(jsonStructure.WEIGHT.name()).getAsJsonArray();
+                weight.setText(array.get(1).getAsString()+ ((array.get(0).getAsInt() == 0)?pActivity.getString(R.string.kilograms_short):
+                        pActivity.getString(R.string.pounds_short)));
+            }
+            if(jo.has(jsonStructure.ABSTINENCE.name()) && jo.get(jsonStructure.ABSTINENCE.name()).getAsInt() == 1) {
+                abstinence.setText(pActivity.getString(R.string.abstinence_short));
+            }
+            if(jo.has(jsonStructure.TEMPERATURE.name())) {
+                temperature_img.setImageResource(R.drawable.temperature);
+                JsonArray array = jo.get(jsonStructure.TEMPERATURE.name()).getAsJsonArray();
+                temperature_txt.setText(array.get(0).getAsString() + ((array.get(1).getAsInt() == 0)?"C":"F"));
+            }
+            if(jo.has(jsonStructure.SYMPTOMS.name())) {
+                symptom.setImageResource(R.drawable.head);
+            }
+            if(jo.has(jsonStructure.MOOD.name())) {
+                mood.setImageResource(pActivity.getResources().getIntArray(R.array.mood_icon)[jo.get(jsonStructure.MOOD.name()).getAsInt()]);
+            }
+        }
     }
 
 }

@@ -1,21 +1,9 @@
 package com.menst_verstka.activity;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.menst_verstka.R;
 import com.menst_verstka.composite.compositeDayParams;
-import com.menst_verstka.utils.frameActivity;
 import com.menst_verstka.utils.jsonframeActivity;
-
-import java.text.DateFormatSymbols;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * Created by Alexander on 30.08.13.
@@ -31,20 +19,14 @@ public class DayParamActivity extends jsonframeActivity {
 
     @Override
     protected void SetCompositeElements() {
-        HideHeaderSetting();
         SetNavBar(nav_bar_dateFormat.format(calendar.getTime()),R.drawable.arrow_left,R.drawable.arrow_right);
         InitJsonComposite();
         content.addView(dayParams);
     }
     @Override
     protected void InitJsonComposite() {
+        SetNavBarText(nav_bar_dateFormat.format(calendar.getTime()));
         dayParams.Set(calendar,jo);
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == RESULT_OK) {
-            setResult(Activity.RESULT_OK,data);
-            finish();
-        }
-    }
 }

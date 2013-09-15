@@ -6,6 +6,7 @@
 
     <dimen name="text_size">12sp</dimen>
     <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_very_small">8sp</dimen>
     <dimen name="text_size_big">14sp</dimen>
     <dimen name="margin_top">4dp</dimen>
     <dimen name="null_dp">0dp</dimen>

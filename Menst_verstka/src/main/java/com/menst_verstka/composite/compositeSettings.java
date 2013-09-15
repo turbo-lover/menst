@@ -63,6 +63,7 @@ public class compositeSettings extends RelativeLayout implements View.OnClickLis
         if(pContext.getClass().equals(LauncherActivity.class)) {
             pContext.startActivity(i);
         }
+        ((Activity)pContext).setResult(Activity.RESULT_OK);
         ((Activity)pContext).finish();
     }
 
@@ -75,25 +76,25 @@ public class compositeSettings extends RelativeLayout implements View.OnClickLis
             cycle_duration.setValue(Double.parseDouble(preferencesWorker.getCycleDuration()));
             menstration_duration.setValue(Double.parseDouble(preferencesWorker.getDurationOfMenstruation()));
             switch (Integer.parseInt(preferencesWorker.getStartOfTheWeek())) {
-                case 0:
-                    start_of_week.check(R.id.choose_week_start_radio1);
-                    break;
                 case 1:
                     start_of_week.check(R.id.choose_week_start_radio2);
                     break;
+                case 2:
+                    start_of_week.check(R.id.choose_week_start_radio3);
+                    break;
                 default:
-                   start_of_week.check(R.id.choose_week_start_radio3);
+                   start_of_week.check(R.id.choose_week_start_radio1);
                     break;
             }
             switch (Integer.parseInt(preferencesWorker.getLanguage())) {
-                case 0:
-                    language.check(R.id.choose_language_radio1);
-                    break;
                 case 1:
                     language.check(R.id.choose_language_radio2);
                     break;
-                default:
+                case 2:
                     language.check(R.id.choose_language_radio3);
+                    break;
+                default:
+                    language.check(R.id.choose_language_radio1);
                     break;
             }
         }
@@ -112,7 +113,12 @@ public class compositeSettings extends RelativeLayout implements View.OnClickLis
         if (language.getCheckedRadioButtonId() == R.id.choose_language_radio3) r2 = 2;
         preferencesWorker.setStartOfTheWeek(Integer.toString(r1));
         preferencesWorker.setLanguage(Integer.toString(r2));
+        SetLanguage(r2);
         GoToCalendar();
+    }
+
+    private void SetLanguage(int n) {
+
     }
 
     private void SetEventListeners() {

@@ -2,6 +2,7 @@ package com.menst_verstka.utils;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import com.menst_verstka.activity.SettingsActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by Turbo on 28.08.13.
@@ -34,8 +36,28 @@ public class frameActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         InitializeComponent();
+        SetLocale();
         SetEventListeners();
         SetCompositeElements();
+    }
+
+    protected void SetLocale() {
+        Locale l;
+        switch (Integer.parseInt(preferencesWorker.getLanguage())) {
+            case 1:
+                l = new Locale("en");
+                break;
+            case 2:
+                l = new Locale("ar");
+                break;
+            default:
+                l = new Locale("ru");
+                break;
+        }
+        Locale.setDefault(l);
+        Configuration config = new Configuration();
+        config.locale = l;
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
     }
 
     protected void SetCompositeElements() { }

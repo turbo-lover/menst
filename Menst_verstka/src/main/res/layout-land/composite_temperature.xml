@@ -34,7 +34,6 @@
                 android:layout_above="@+id/temp_number_picker_rl"
                 android:textStyle="bold"
                 android:textSize="22sp"
-                android:text="@string/temperature"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +79,7 @@
                 android:layout_alignBottom="@+id/composite_temperature_left1"
                 android:layout_toLeftOf="@+id/composite_temperature_left1"
                 android:textStyle="bold"
-                android:text="+1"
+                android:text="-1"
                 android:textSize="22sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,8 +95,8 @@
                 android:layout_width="wrap_content"
                 >
                 <RadioButton
+                    android:checked="true"
                     android:id="@+id/composite_temperature_radio1"
-                    android:text="@string/temperature_celsius"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="@dimen/text_size_small"
@@ -106,7 +105,6 @@
                     />
                 <RadioButton
                     android:id="@+id/composite_temperature_radio2"
-                    android:text="@string/temperature_fahrenheit"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="@dimen/text_size_small"

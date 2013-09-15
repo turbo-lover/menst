@@ -1,9 +1,7 @@
 package com.menst_verstka.activity;
 
 import com.menst_verstka.R;
-import com.menst_verstka.composite.compositeSettings;
 import com.menst_verstka.composite.compositeWeight;
-import com.menst_verstka.utils.frameActivity;
 import com.menst_verstka.utils.jsonframeActivity;
 
 /**
@@ -21,8 +19,16 @@ public class WeightActivity extends jsonframeActivity {
     @Override
     protected void SetCompositeElements() {
         SetNavBar(nav_bar_dateFormat.format(calendar.getTime()),R.drawable.arrow_left,R.drawable.arrow_right);
-        SetHeaderText(getString(R.string.settings));
+        SetHeaderText(getString(R.string.calendar_title));
         cmpWeight.Set(calendar,jo);
         content.addView(cmpWeight);
     }
+
+    @Override
+    protected void InitJsonComposite() {
+        SetNavBarText(nav_bar_dateFormat.format(calendar.getTime()));
+        cmpWeight.Set(calendar,jo);
+    }
+
+
 }

@@ -19,7 +19,6 @@ public class LauncherActivity extends SettingsActivity  {
         myPreferencesWorker pf = new myPreferencesWorker(this);
         if(!pf.isEmpty()) {
             Intent i = new Intent(this,CalendarActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
         }
     }

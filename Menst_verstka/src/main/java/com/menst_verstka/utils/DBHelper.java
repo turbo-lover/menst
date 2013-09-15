@@ -52,22 +52,17 @@ public class DBHelper extends SQLiteOpenHelper {
     public JsonObject getRawJsonByDate (String date){
         SQLiteDatabase db = null;
         Cursor cursor  = null;
-
         try {
             //try to get readableDatabase;
             db = getReadableDatabase();
-
             if (db != null) {
                 // select $PARAMS from table $TABLE_PARAMS where $DATE == $date
-            //    cursor = db.query(TABLE_PARAMS, new String[]{PARAMS}, DATE + "=?", new String[]{date}, null, null, null);
-                cursor = db.query(TABLE_PARAMS,null,null,null,null,null,null);
+                cursor = db.query(TABLE_PARAMS, new String[]{PARAMS}, DATE + "=?", new String[]{date}, null, null, null);
             }
-            int columnIndex = cursor.getColumnIndex(PARAMS);
             String str = null;
             if(cursor.getCount() != 0 ) {
                 cursor.moveToFirst();
-                str = cursor.getString(columnIndex);
-                String str1 = cursor.getString(1);
+                str = cursor.getString(cursor.getColumnIndex(PARAMS));
                 return new JsonParser().parse(str).getAsJsonObject();
             }
         } catch (SQLiteException e) {
