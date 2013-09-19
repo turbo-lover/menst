@@ -26,7 +26,7 @@ public class WeightActivity extends jsonframeActivity {
 
     @Override
     protected void InitJsonComposite() {
-        SetNavBarText(nav_bar_dateFormat.format(calendar.getTime()));
+        super.InitJsonComposite();
         cmpWeight.Set(calendar,jo);
     }
 

@@ -92,7 +92,7 @@ public class compositeMonth extends jsonCompositeElement implements View.OnClick
     public void UpdateText() {
         myPreferencesWorker prefe = new myPreferencesWorker(pActivity);
         SimpleDateFormat month_format;
-        if(prefe.getLanguage() == "0") {
+        if(Integer.parseInt(prefe.getLanguage()) == 0) {
             DateFormatSymbols symbols = new DateFormatSymbols();
             symbols.setMonths(pActivity.getResources().getStringArray(R.array.months_normal));
             month_format = new SimpleDateFormat("MMMM",symbols);

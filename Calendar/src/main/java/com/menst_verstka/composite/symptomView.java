@@ -5,15 +5,20 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+
+import com.google.gson.JsonObject;
 import com.menst_verstka.R;
+import com.menst_verstka.utils.jsonComposite;
+import com.menst_verstka.utils.jsonCompositeElement;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
  * Created by turbo_lover on 22.08.13.
  */
-public class symptomView extends LinearLayout {
+public class symptomView extends jsonCompositeElement {
 
     List<symptomElement> symptoms;
     LinearLayout container;
@@ -58,5 +63,10 @@ public class symptomView extends LinearLayout {
                 }
             }
         }
+    }
+
+    @Override
+    public void Set(Calendar calendar, JsonObject jo) {
+        super.Set(calendar,jo);
     }
 }

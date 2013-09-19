@@ -113,12 +113,7 @@ public class compositeSettings extends RelativeLayout implements View.OnClickLis
         if (language.getCheckedRadioButtonId() == R.id.choose_language_radio3) r2 = 2;
         preferencesWorker.setStartOfTheWeek(Integer.toString(r1));
         preferencesWorker.setLanguage(Integer.toString(r2));
-        SetLanguage(r2);
         GoToCalendar();
-    }
-
-    private void SetLanguage(int n) {
-
     }
 
     private void SetEventListeners() {

@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"/>
         <Button
                 android:id="@+id/back_to_calendar"
-                android:text="@string/back_to_calendar"
+                android:text="@string/close"
                 android:layout_weight="1"
                 android:layout_width="@dimen/null_dp"
                 android:layout_height="wrap_content"/>

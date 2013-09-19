@@ -19,24 +19,15 @@ public class SymptomActivity extends jsonframeActivity {
 
     @Override
     protected void SetCompositeElements() {
-        SetNavBar("Some day",R.drawable.arrow_left,R.drawable.arrow_right);
+        SetNavBar(nav_bar_dateFormat.format(calendar.getTime()),R.drawable.arrow_left,R.drawable.arrow_right);
         SetHeaderText(getString(R.string.calendar_title));
+        sView.Set(calendar,jo);
         content.addView(sView);
     }
 
-/*
-
     @Override
-    protected void Forward() {
-        AlertDialog.Builder b = new AlertDialog.Builder(this);
-        b.setMessage("forward").show();
+    protected void InitJsonComposite() {
+        super.InitJsonComposite();
+        sView.Set(calendar,jo);
     }
-
-    @Override
-    protected void Backward() {
-        AlertDialog.Builder b = new AlertDialog.Builder(this);
-        b.setMessage("backward").show();
-    }
-
-    */
 }

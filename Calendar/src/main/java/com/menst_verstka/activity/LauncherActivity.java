@@ -30,4 +30,6 @@ public class LauncherActivity extends SettingsActivity  {
         cmpSetting.SetButtonText(getString(R.string.start_calendar));
         content.addView(cmpSetting);
     }
+    @Override
+    protected void SetLocale() {}
 }

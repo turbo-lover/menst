@@ -26,7 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "menstruation";
     private static final int DB_VERSION = 1;
     private static final String CREATE_TABLE = "CREATE TABLE "+ TABLE_PARAMS +
-            " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +DATE+" TEXT NOT NULL, "+PARAMS+" TEXT);";
+            " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +DATE+" TEXT NOT NULL UNIQUE, "+PARAMS+" TEXT);";
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -76,13 +76,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void SetJsonByDate(String date,JsonObject object) {
         SQLiteDatabase db = null;
-        Cursor cursor  = null;
         try {
             db = getWritableDatabase();
             ContentValues cv = new ContentValues();
             cv.put(PARAMS,object.toString());
             cv.put(DATE,date);
-            db.insert(TABLE_PARAMS,null,cv);
+            db.insertWithOnConflict(TABLE_PARAMS,null,cv,SQLiteDatabase.CONFLICT_REPLACE);
         } catch (SQLiteException e) {
             e.printStackTrace();
         } finally {

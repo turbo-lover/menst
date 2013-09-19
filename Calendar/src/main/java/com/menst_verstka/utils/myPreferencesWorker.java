@@ -74,7 +74,7 @@ public class myPreferencesWorker {
     public String getLanguage() {
         ContextWrapper cw = new ContextWrapper(context);
         sPref = cw.getSharedPreferences(location, Context.MODE_PRIVATE);
-        return sPref.getString(preferenceLanguage,"");
+        return sPref.getString(preferenceLanguage,"0");
     }
 
     public boolean isEmpty() {

@@ -16,6 +16,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.menst_verstka.R;
 import com.menst_verstka.activity.DayParamActivity;
+import com.menst_verstka.activity.SymptomActivity;
 import com.menst_verstka.activity.TemperatureActivity;
 import com.menst_verstka.activity.WeightActivity;
 import com.menst_verstka.utils.jsonCompositeElement;
@@ -31,7 +32,7 @@ import java.util.GregorianCalendar;
  */
 public class compositeDayParams extends jsonCompositeElement implements View.OnClickListener {
     private Button menstruation_start,menstruation_end,clear_params,go_back;
-    private LinearLayout weight,temperature,pill;
+    private LinearLayout weight,temperature,pill,symptoms;
     private SimpleDateFormat date_format;
 
     public compositeDayParams(Context context) {
@@ -47,6 +48,7 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
         weight.setOnClickListener(this);
         temperature.setOnClickListener(this);
         pill.setOnClickListener(this);
+        symptoms.setOnClickListener(this);
     }
     @Override
     protected void InitializeComponent(Context pContext) {
@@ -60,6 +62,7 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
         weight = (LinearLayout) findViewById(R.id.composite_day_params_weight);
         temperature = (LinearLayout) findViewById(R.id.composite_day_params_temperature);
         pill = (LinearLayout) findViewById(R.id.composite_day_params_pill);
+        symptoms = (LinearLayout) findViewById(R.id.composite_day_params_symptoms);
     }
     @Override
     public void Set(Calendar calendar,JsonObject jo) {
@@ -84,9 +87,9 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
                 pActivity.startActivityForResult(i, 1);
                 break;
             case R.id.composite_day_params_temperature:
-                Intent intent = new Intent(pActivity, TemperatureActivity.class);
-                intent.putExtras(pActivity.GenerateExtras(calendar,jo));
-                pActivity.startActivityForResult(intent, 1);
+                i = new Intent(pActivity, TemperatureActivity.class);
+                i.putExtras(pActivity.GenerateExtras(calendar,jo));
+                pActivity.startActivityForResult(i, 1);
                 break;
             case R.id.composite_day_params_pill:
                 TogglePill();
@@ -94,6 +97,11 @@ public class compositeDayParams extends jsonCompositeElement implements View.OnC
                 i.putExtras(pActivity.GenerateExtras(calendar,jo));
                 pActivity.setResult(Activity.RESULT_OK,i);
                 pActivity.finish();
+                break;
+            case R.id.composite_day_params_symptoms:
+                i = new Intent(pActivity, SymptomActivity.class);
+                i.putExtras(pActivity.GenerateExtras(calendar,jo));
+                pActivity.startActivityForResult(i, 1);
                 break;
         }
     }

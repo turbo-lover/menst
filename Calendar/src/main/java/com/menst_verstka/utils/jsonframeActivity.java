@@ -27,7 +27,7 @@ public class jsonframeActivity extends frameActivity {
     @Override
     protected void InitializeComponent() {
         super.InitializeComponent();
-        if(preferencesWorker.getLanguage() == "0") { // FOR RUSSIAN LANGUAGE
+        if(Integer.parseInt(preferencesWorker.getLanguage()) == 0) { // FOR RUSSIAN LANGUAGE
             DateFormatSymbols dateFormatSymbols = new DateFormatSymbols();
             dateFormatSymbols.setMonths(getResources().getStringArray(R.array.months));
             nav_bar_dateFormat = new SimpleDateFormat("dd MMMM yyyy",dateFormatSymbols);
@@ -82,5 +82,7 @@ public class jsonframeActivity extends frameActivity {
         InitJsonComposite();
     }
 
-    protected void InitJsonComposite() {}
+    protected void InitJsonComposite() {
+        SetNavBarText(nav_bar_dateFormat.format(calendar.getTime()));
+    }
 }

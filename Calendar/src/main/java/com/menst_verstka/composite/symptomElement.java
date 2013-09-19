@@ -24,10 +24,6 @@ public class symptomElement extends LinearLayout implements View.OnClickListener
     private AutoResizeTextView text;
     private int currentValue = 0;
 
-    public symptomElement(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initializeVariables();
-    }
 
     public symptomElement(Context context) {
         super(context);
