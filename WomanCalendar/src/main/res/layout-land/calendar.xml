@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <RelativeLayout
+            android:background="@color/pink"
+            android:layout_height="match_parent"
+            android:layout_width="30dp"
+            android:id="@+id/navigation_rl"
+            android:layout_below="@+id/calendar_title"
+            android:layout_alignParentLeft="true"
+            >
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <RelativeLayout
+                    android:layout_height="@dimen/null_dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    >
+                    <ImageView
+                        android:id="@+id/BackCalendarButton"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/arrow_left"
+                        android:rotation="90"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_height="@dimen/null_dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    ></RelativeLayout>
+                <RelativeLayout
+                    android:layout_height="@dimen/null_dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    >
+                    <ImageView
+                        android:id="@+id/FwdCalendarButton"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"
+                        android:rotation="90"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:paddingBottom="@dimen/null_dp"
+            android:id="@+id/months_holder"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_toRightOf="@+id/navigation_rl"
+            >
+        </LinearLayout>
+</RelativeLayout>
+
+    </LinearLayout>

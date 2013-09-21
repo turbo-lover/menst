@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Menstruation calendar</string>
+    <string name="cycle_duration">دورة الزمن</string>
+    <string name="start_calendar">البدء في استخدام التقويم</string>
+    <string name="choose_week_start">:تحديد يوم من أيام الأسبوع</string>
+
+    <string name="change_settings_text">في وقت لاحق، وجميع الإعدادات يمكن تغييرها من خلال النقر على أيقونة</string>
+    <string name="settings">إعدادات</string>
+    <string name="cycle_duration_text">دورة الزمن</string>
+    <string name="menstruation_duration_text">مدة الحيض</string>
+    <string name="choose_language">:حدد اللغة من التقويم</string>
+
+    <string name="calendar_title">التقويم من الحيض - الأخت</string>
+    <string name="main_header_text">مرحبا بكم في<b>!«مفكرة الحيض - الأخت»»</b> \n .لمزيد من العمل، يرجى اتباع الإعداد الأولي</string>
+    <string name="save_settings">حفظ الإعدادات</string>
+    <string name="menstruation_start">الحيض</string>
+    <string name="menstruation_end">نهاية الحيض</string>
+    <string name="delete_param">مسح إعداد</string>
+    <string name="back_to_calendar">العودة إلى التقويم</string>
+    <string name="symptoms">الأعراض</string>
+    <string name="namaz">صلاة محمدي</string>
+    <string name="abstinence">بعد</string>
+    <string name="notes">ملاحظات</string>
+    <string name="mood">مزاج</string>
+    <string name="temperature">درجة الحرارة</string>  <!-- Температура -->
+    <string name="weight">الوزن</string>
+    <string name="pill">لوح</string>
+    <string name="temperature_celsius">سلسيوسي</string>
+    <string name="temperature_fahrenheit">فهرنهايت</string>
+    <string name="pounds">جنيه</string>
+    <string name="kilograms">كجم</string>
+    <string name="save">حفظ</string>
+    <string name="close">أغلق</string>
+    <string name="reminder">تذكير</string>
+    <string name="event_time">وقت الحدث</string>
+    <string name="prayer">صلاة محمدي</string>
+    <string name="reminer_is_not_set">تذكير مفقود</string>
+    <string name="at_event_time">في وقت الحدث</string>
+
+    <!-- Week start  -->
+    <string name="device_settings">إعدادات الجهاز</string>
+    <string name="sunday">الأحد</string>
+    <string name="monday">يوم الاثنين</string>
+
+    <!-- Languages -->
+    <string name="russian">Russian</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+
+    <!-- Prayers -->
+    <string name="fajr">الفجر</string>
+    <string name="zuhr">الظهر</string>
+    <string name="asr">العصر</string>
+    <string name="maghrib">المغرب العربي</string>
+    <string name="isha">العشاء</string>
+
+	
+	 <!-- Symptoms  -->
+    <string name="appetite">شهية</string>
+    <string name="insomnia">أرق</string>
+    <string name="fever">ارتفاع درجة الحرارة</string>
+    <string name="muscle_joint_pain">ألم في العضلات / المفاصل</string>
+    <string name="backaches">آلام الظهر</string>
+    <string name="body_aches">الألم في الجسم</string>
+    <string name="breast_pain">ألم في الصدر</string>
+    <string name="abdominal_pain">ألم في البطن</string>
+    <string name="pain_in_the_groin">ألم في الفخذ</string>
+    <string name="headaches">الصداع</string>
+    <string name="ovarian_pain">وجع المبيض</string>
+    <string name="bloating">انتفاخ في البطن</string>
+    <string name="dizziness">دوخة</string>
+    <string name="vomiting">غثيان</string>
+    <string name="constipation">الإمساك</string>
+    <string name="diarrhea">الإسهال</string>
+    <string name="rash">طفح جلدي</string>
+    <string name="cramps">تشنجات</string>
+    <string name="bleeding">من النزيف / نزيف</string>
+    <string name="libido">الرغبة الجنسية</string>
+
+    <!-- Mood   -->
+    <string name="joyful">سعيد</string>
+    <string name="depressed">مكبوت</string>
+    <string name="sleepy">نعسان</string>
+    <string name="sullen">حاقد</string>
+    <string name="sad">حزين</string>
+    <string name="irratiable">Techy</string>
+    <string name="calm">تهدئة</string>
+    <string name="confused">مرتبك</string>
+    <string name="neutral">محايد</string>
+    <string name="angry">غاضب</string>
+    <string name="happy">سعيد</string>
+
+</resources>

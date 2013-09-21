@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="symptoms_icon">
+        <item>@drawable/appetite</item>
+        <item>@drawable/insomnia</item>
+        <item>@drawable/temperature</item>
+        <item>@drawable/muscles</item>
+        <item>@drawable/back</item>
+        <item>@drawable/body</item>
+        <item>@drawable/chest</item>
+        <item>@drawable/stomach</item>
+        <item>@drawable/groin</item>
+        <item>@drawable/head</item>
+        <item>@drawable/ovaries</item>
+        <item>@drawable/bloating</item>
+        <item>@drawable/dizziness</item>
+        <item>@drawable/nausea</item>
+        <item>@drawable/constipation</item>
+        <item>@drawable/diarrhea</item>
+        <item>@drawable/rash</item>
+        <item>@drawable/cramps</item>
+        <item>@drawable/bleeding</item>
+        <item>@drawable/libido</item>
+    </array>
+
+    <array name="mood_icon">
+        <item>@drawable/mood_pleasant</item>
+        <item>@drawable/mood_faint</item>
+        <item>@drawable/mood_asleep</item>
+        <item>@drawable/mood_despise</item>
+        <item>@drawable/mood_sad</item>
+        <item>@drawable/mood_strive</item>
+        <item>@drawable/mood_calm</item>
+        <item>@drawable/mood_puzzled</item>
+        <item>@drawable/mood_neutral</item>
+        <item>@drawable/mood_rage</item>
+        <item>@drawable/mood_happy</item>
+    </array>
+
+    <string-array name="prayer_type">
+        <item>@string/fajr</item>
+        <item>@string/zuhr</item>
+        <item>@string/asr</item>
+        <item>@string/maghrib</item>
+        <item>@string/isha</item>
+    </string-array>
+
+    <string-array name="symptoms_text">
+        <item>@string/appetite</item>
+        <item>@string/insomnia</item>
+        <item>@string/fever</item>
+        <item>@string/muscle_joint_pain</item>
+        <item>@string/backaches</item>
+        <item>@string/body_aches</item>
+        <item>@string/breast_pain</item>
+        <item>@string/abdominal_pain</item>
+        <item>@string/pain_in_the_groin</item>
+        <item>@string/headaches</item>
+        <item>@string/ovarian_pain</item>
+        <item>@string/bloating</item>
+        <item>@string/dizziness</item>
+        <item>@string/vomiting</item>
+        <item>@string/constipation</item>
+        <item>@string/diarrhea</item>
+        <item>@string/rash</item>
+        <item>@string/cramps</item>
+        <item>@string/bleeding</item>
+        <item>@string/libido</item>
+    </string-array>
+
+    <string-array name="mood">
+        <item>@string/joyful</item>
+        <item>@string/depressed</item>
+        <item>@string/sleepy</item>
+        <item>@string/sullen</item>
+        <item>@string/sad</item>
+        <item>@string/irratiable</item>
+        <item>@string/calm</item>
+        <item>@string/confused</item>
+        <item>@string/neutral</item>
+        <item>@string/angry</item>
+        <item>@string/happy</item>
+    </string-array>
+</resources>

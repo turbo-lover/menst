@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Menstruation calendar</string>
+    <string name="start_calendar">Начать использовать календарь</string>
+    <string name="choose_week_start">Выберите день начала недели:</string>
+    <string name="change_settings_text">Позже все настройки можно будет изменить нажав на иконку</string>
+    <string name="settings">Настройки</string>
+    <string name="cycle_duration_text">Длительность цикла</string>
+    <string name="menstruation_duration_text">Длительность менструации</string>
+    <string name="choose_language">Выберите язык календаря:</string>
+    <string name="calendar_title">Календарь менструации - Sister</string>
+    <string name="main_header_text">  Добро пожаловать в <b>«Календарь менструации - Sister»!</b> \n Для дальнейшей работы, пожалуйста, выполните первоначальную настройку.</string>
+    <string name="save_settings">Сохранить настройки</string>
+    <string name="menstruation_start">Начало менструации</string>
+    <string name="menstruation_end">Конец менструации</string>
+    <string name="delete_param">Очистить параметр</string>
+    <string name="back_to_calendar">Вернутся в календарь</string>
+    <string name="symptoms">Симптомы</string>
+    <string name="namaz">Намаз</string>
+    <string name="abstinence">Пост</string>
+    <string name="notes">Заметки</string>
+    <string name="mood">Настроение</string>
+    <string name="temperature">ВМТ</string>  <!-- Температура -->
+    <string name="weight">Вес</string>
+    <string name="pill">Таблетка</string>
+    <string name="temperature_celsius">По Цельсию</string>
+    <string name="temperature_fahrenheit">По Фаренгейту</string>
+    <string name="pounds">Фунты</string>
+    <string name="kilograms">Килограммы</string>
+    <string name="save">Сохранить</string>
+    <string name="close">Закрыть</string>
+    <string name="reminder">Напоминание</string>
+    <string name="event_time">Время события</string>
+    <string name="reminer_is_not_set">Напоминание отсутсвует</string>
+    <string name="at_event_time">В момент события</string>
+    <string name="abstinence_short">П</string>
+    <string name="kilograms_short">kg</string>
+    <string name="pounds_short">lb</string>
+
+    <!-- Week start  -->
+    <string name="device_settings">Настройки устройства</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="monday">Понедельник</string>
+
+    <!-- Languages -->
+    <string name="russian">Русский</string>
+    <string name="english">Английский</string>
+    <string name="arabic">Арабский</string>
+
+    <!-- Prayers -->
+    <string name="fajr">Фаджр</string>
+    <string name="zuhr">Зухр</string>
+    <string name="asr">Аср</string>
+    <string name="maghrib">Магриб</string>
+    <string name="isha">Иша</string>
+
+    <!-- Symptoms  -->
+    <string name="appetite">Аппетит</string>
+    <string name="insomnia">Бессонница</string>
+    <string name="fever">Повышение температуры</string>
+    <string name="muscle_joint_pain">Боли в мышцах / суставах</string>
+    <string name="backaches">Боли в спине</string>
+    <string name="body_aches">Боли в теле</string>
+    <string name="breast_pain">Боли в груди</string>
+    <string name="abdominal_pain">Боли в животе</string>
+    <string name="pain_in_the_groin">Боли в паху</string>
+    <string name="headaches">Головные боли</string>
+    <string name="ovarian_pain">Болезненность яичников</string>
+    <string name="bloating">Вздутие живота</string>
+    <string name="dizziness">Головокружение</string>
+    <string name="vomiting">Тошнота</string>
+    <string name="constipation">Запор</string>
+    <string name="diarrhea">Диарея</string>
+    <string name="rash">Сыпь</string>
+    <string name="cramps">Колики</string>
+    <string name="bleeding">Кровяные выделения / кровотечения</string>
+    <string name="libido">Либидо</string>
+
+    <!-- Mood   -->
+    <string name="joyful">Радостная</string>
+    <string name="depressed">Подавленная</string>
+    <string name="sleepy">Сонная</string>
+    <string name="sullen">Угрюмая</string>
+    <string name="sad">Грустная</string>
+    <string name="irratiable">Раздражительная</string>
+    <string name="calm">Спокойная</string>
+    <string name="confused">Растерянная</string>
+    <string name="neutral">Нейтральная</string>
+    <string name="angry">Сердитая</string>
+    <string name="happy">Счастливая</string>
+
+    <!-- Месяца  -->
+    <string-array name="months">
+        <item>Января</item>
+        <item>Февраля</item>
+        <item>Марта</item>
+        <item>Апреля</item>
+        <item>Мая</item>
+        <item>Июня</item>
+        <item>Июля</item>
+        <item>Августа</item>
+        <item>Сентября</item>
+        <item>Октября</item>
+        <item>Ноября</item>
+        <item>Декабря</item>
+    </string-array>
+
+    <!-- Месяца в родительном падеже.  -->
+    <string-array name="months_normal">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Маь</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
+    </string-array>
+</resources>
